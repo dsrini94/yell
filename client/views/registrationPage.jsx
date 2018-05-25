@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {Grid} from 'semantic-ui-react';
-import LoginHeader from '../components/loginHeader.jsx';
-import LoginFields from '../components/loginFields.jsx';
+import RegisterHeader from '../components/registerHeader.jsx';
+import RegisterFields from '../components/registerFields.jsx';
 import AppBar from '../components/appBar.jsx'
 
-export default class Loginpage extends Component {
+export default class Registrationpage extends Component {
   constructor(){
     super();
     this.state={
@@ -22,27 +22,12 @@ export default class Loginpage extends Component {
           </Grid.Row>
           <Grid.Row only='computer'>
             <Grid.Column width={16}>
-              <LoginHeader />
+              <RegisterHeader />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row only='computer'>
             <Grid.Column width={16}>
-              <LoginFields />
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row only='tablet'>
-            <Grid.Column width={16}>
-              <AppBar />
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row only='tablet'>
-            <Grid.Column width={16}>
-              <LoginHeader />
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row only='tablet'>
-            <Grid.Column width={16}>
-              <LoginFields />
+              <RegisterFields />
             </Grid.Column>
           </Grid.Row>
         </Grid>

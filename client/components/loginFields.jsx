@@ -14,7 +14,7 @@ export default class LoginFields extends Component {
         <Grid>
           <Grid.Row>
             <Grid.Column width={16}>
-              <Divider style={{background:'#fedb00',height:'20%'}}/>
+              <Divider style={{background:'#fedb00',height:'20%',marginTop:'-1%'}}/>
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
@@ -34,6 +34,11 @@ export default class LoginFields extends Component {
                 <Grid.Row>
                   <Grid.Column width={16}>
                     <Input fluid/>
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={16}>
+                    <h3 style={{color:'gray'}}>abc@xyz.com</h3>
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
