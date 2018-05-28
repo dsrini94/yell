@@ -27,7 +27,7 @@ module.exports = {
          },
          {
          	test: /\.(jpe?g|gif|png)$/,
-         	loader: "file-loader?emitFile=false&name=../client/assets/[name].[ext]"
+         	loader: "file-loader?emitFile=false&name=./client/assets/images/[name].[ext]"
          }
       ]
    }
