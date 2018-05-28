@@ -8,11 +8,13 @@ import LoginFieldsMobile from '../components/loginFieldsMobile.jsx';
 import LoginFieldsTablet from '../components/loginFieldsTablet.jsx'
 import AppBar from '../components/appBar.jsx';
 import DividerLine from '../components/divider.jsx';
+import DividerBottom from '../components/dividerBottom.jsx';
 import MenuBar from '../components/menuBar.jsx';
 import MenuBarMobile from '../components/menuBarMobile.jsx';
 import MenuBarTablet from '../components/menuBarTablet.jsx'
 import AppBarMobile from '../components/appBarMobile.jsx';
-import AppBarTablet from '../components/appBarTablet.jsx'
+import AppBarTablet from '../components/appBarTablet.jsx';
+import Footer from '../components/footer.jsx';
 export default class Loginpage extends Component {
   constructor(){
     super();
@@ -44,6 +46,16 @@ export default class Loginpage extends Component {
               <LoginFields />
             </Grid.Column>
           </Grid.Row>
+          <Grid.Row only='computer'>
+            <Grid.Column width={16}>
+              <DividerBottom />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row only='computer'>
+            <Grid.Column width={16}>
+              <Footer />
+            </Grid.Column>
+          </Grid.Row>
           <Grid.Row only='tablet'>
             <Grid.Column width={16}>
               <AppBarTablet />
@@ -64,6 +76,16 @@ export default class Loginpage extends Component {
               <LoginFieldsTablet />
             </Grid.Column>
           </Grid.Row>
+          <Grid.Row only='tablet'>
+            <Grid.Column width={16}>
+              <DividerBottom />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row only='tablet'>
+            <Grid.Column width={16}>
+              <Footer />
+            </Grid.Column>
+          </Grid.Row>
           <Grid.Row only='mobile'>
             <Grid.Column width={16}>
               <AppBarMobile />
@@ -82,6 +104,16 @@ export default class Loginpage extends Component {
           <Grid.Row only='mobile'>
             <Grid.Column width={16}>
               <LoginFieldsMobile />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row only='mobile'>
+            <Grid.Column width={16}>
+              <DividerBottom />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row only='mobile'>
+            <Grid.Column width={16}>
+              <Footer />
             </Grid.Column>
           </Grid.Row>
         </Grid>
