@@ -16,7 +16,7 @@ function HeroUnitTablet(){
       <center>
         <Input icon='search' iconPosition='left' placeholder='Search...'  style={styles.componentPadding}/>
         <Input icon='globe' iconPosition='left' placeholder='UK town or postcode'  style={styles.componentPadding}/>
-        <Button color='yellow' style={styles.componentPadding}>Seatch</Button>
+        <Button color='yellow' style={styles.componentPadding}>Search</Button>
      </center>
       </div>
 
@@ -27,7 +27,7 @@ function HeroUnitTablet(){
 const styles={
   container:{
     position: 'relative',
-    width: '100%',
+    width: '100%'
   },
   image:{
     width:'100%',

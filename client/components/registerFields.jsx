@@ -165,7 +165,7 @@ export default class RegisterFields extends Component {
                       <h3>Account Number</h3>
                     </Grid.Column>
                   </Grid.Row>
-                  <Grid.Row style={{marginTop:'2%'}}>
+                  <Grid.Row style={{marginTop:'1%'}}>
                     <Grid.Column width={16}>
                       <Input fluid/>
                     </Grid.Column>
@@ -175,7 +175,7 @@ export default class RegisterFields extends Component {
                       <h3>Postcode</h3>
                     </Grid.Column>
                   </Grid.Row>
-                  <Grid.Row style={{marginTop:'2%'}}>
+                  <Grid.Row style={{marginTop:'1%'}}>
                     <Grid.Column width={16}>
                       <Input fluid/>
                     </Grid.Column>

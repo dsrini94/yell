@@ -7,12 +7,12 @@ function MenuBarMobile(){
     <Segment style={styles.container}>
       <Grid >
         <Grid.Row>
-          <Grid.Column width={4}>
+          <Grid.Column width={4} style={styles.loginImage}>
              <Image src='./client/assets/images/logo.png' size='big' />
           </Grid.Column>
-          <Grid.Column width={3} />
+          <Grid.Column width={2} />
 
-          <Grid.Column width={4} as={Link} to='/login' style={styles.loginContainer}>
+          <Grid.Column width={5} as={Link} to='/login' style={styles.loginContainer}>
              <Icon name="user circle" size='large'/>
              <span style={styles.loginText}>Log In</span>
           </Grid.Column>
@@ -39,6 +39,9 @@ const styles={
   loginContainer:{
     marginTop:'10px',
     color:'black'
+  },
+  loginImage:{
+    marginTop:'10px'
   }
 }
 

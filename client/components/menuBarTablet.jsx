@@ -9,7 +9,7 @@ function MenuBarTablet(){
         <Grid.Row>
           <Grid.Column width={2}/>
 
-          <Grid.Column width={2}>
+          <Grid.Column width={2} style={styles.loginImage}>
              <Image src='./client/assets/images/logo.png' size='large' />
           </Grid.Column>
 
@@ -42,6 +42,9 @@ const styles={
   loginContainer:{
     marginTop:'10px',
     color:'black'
+  },
+  loginImage:{
+    marginTop:'10px'
   }
 }
 

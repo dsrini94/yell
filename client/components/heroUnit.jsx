@@ -15,7 +15,7 @@ function HeroUnit(){
       <div style={styles.fieldContainer}>
         <Input icon='search' iconPosition='left' placeholder='Search...'  style={styles.componentPadding}/>
         <Input icon='globe' iconPosition='left' placeholder='UK town or postcode'  style={styles.componentPadding}/>
-        <Button color='yellow' style={styles.componentPadding}>Seatch</Button>
+        <Button color='yellow' style={styles.componentPadding}>Search</Button>
       </div>
 
     </div>
