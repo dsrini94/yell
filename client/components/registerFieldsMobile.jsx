@@ -64,7 +64,7 @@ export default class RegisterFieldsMobile extends Component {
                 </Grid.Row>
 
                 <Grid.Row>
-                  <Grid.Column width={16}>
+                  <Grid.Column width={16} style={{marginTop:'-5%'}}>
                     <Input fluid />
                   </Grid.Column>
                 </Grid.Row>
@@ -76,13 +76,13 @@ export default class RegisterFieldsMobile extends Component {
                 </Grid.Row>
 
                 <Grid.Row>
-                  <Grid.Column width={16}>
+                  <Grid.Column width={16} style={{marginTop:'-5%'}}>
                     <Input fluid/>
                   </Grid.Column>
                 </Grid.Row>
 
                 <Grid.Row>
-                  <Grid.Column>
+                  <Grid.Column style={{marginTop:'-5%'}}>
                     <Message >
                         <p>
                           <strong>Note:</strong> &nbsp; We will automatically create your display name, e.g JSmith-39. You can change this on the My Settings page after your account is created.
@@ -98,13 +98,13 @@ export default class RegisterFieldsMobile extends Component {
                 </Grid.Row>
 
                 <Grid.Row>
-                  <Grid.Column width={16}>
+                  <Grid.Column width={16} style={{marginTop:'-5%'}}>
                     <Input fluid/>
                   </Grid.Column>
                 </Grid.Row>
 
                 <Grid.Row>
-                  <Grid.Column width={16}>
+                  <Grid.Column width={16} style={{marginTop:'-5%'}}>
                     <h4 style={{color:'gray'}}>abc@xyz.com</h4>
                   </Grid.Column>
                 </Grid.Row>
@@ -116,13 +116,13 @@ export default class RegisterFieldsMobile extends Component {
                 </Grid.Row>
 
                 <Grid.Row>
-                  <Grid.Column width={16}>
+                  <Grid.Column width={16} style={{marginTop:'-5%'}}>
                     <Input fluid onChange={this.handlePassword}/>
                   </Grid.Column>
                 </Grid.Row>
 
                 <Grid.Row>
-                  <Grid.Column width={16}>
+                  <Grid.Column width={16} style={{marginTop:'-5%'}}>
                     <Message info>
                     {this.state.upperFound == false ?
                     <span style={{color:'red'}}>One Uppercase</span>:

@@ -60,7 +60,7 @@ export default class RegisterFields extends Component {
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
-                  <Grid.Column width={16}>
+                  <Grid.Column width={16} style={{marginTop:'-2%'}}>
                     <Input fluid/>
                   </Grid.Column>
                 </Grid.Row>
@@ -70,12 +70,12 @@ export default class RegisterFields extends Component {
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
-                  <Grid.Column width={16}>
+                  <Grid.Column width={16} style={{marginTop:'-2%'}}>
                     <Input fluid/>
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
-                  <Grid.Column>
+                  <Grid.Column style={{marginTop:'-2%'}}>
                     <Message >
                         <p>
                           <strong>Note:</strong> &nbsp; We will automatically create your display name, e.g JSmith-39. You can change this on the My Settings page after your account is created.
@@ -89,12 +89,12 @@ export default class RegisterFields extends Component {
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
-                  <Grid.Column width={16}>
+                  <Grid.Column width={16} style={{marginTop:'-2%'}}>
                     <Input fluid/>
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
-                  <Grid.Column width={16}>
+                  <Grid.Column width={16} style={{marginTop:'-2%'}}>
                     <h4 style={{color:'gray'}}>abc@xyz.com</h4>
                   </Grid.Column>
                 </Grid.Row>
@@ -104,12 +104,12 @@ export default class RegisterFields extends Component {
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
-                  <Grid.Column width={16}>
+                  <Grid.Column width={16} style={{marginTop:'-2%'}}>
                     <Input fluid onChange={this.handlePassword}/>
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
-                  <Grid.Column width={4}>
+                  <Grid.Column width={4} style={{marginTop:'-2%'}}>
 
                     {this.state.upperFound == false ?
                     <span style={{color:'red'}}>One Uppercase</span>:
@@ -120,7 +120,7 @@ export default class RegisterFields extends Component {
                    }
 
                 </Grid.Column>
-                <Grid.Column width={4}>
+                <Grid.Column width={4} style={{marginTop:'-2%'}}>
 
                   {this.state.numberFound == false ?
                     <span style={{color:'red'}} >One Number</span>:
@@ -131,7 +131,7 @@ export default class RegisterFields extends Component {
                   }
 
                   </Grid.Column>
-                  <Grid.Column width={4}>
+                  <Grid.Column width={4} style={{marginTop:'-2%'}}>
 
                     {this.state.characterFound == false ?
                     <span style={{color:'red'}}>One special Character</span>:
@@ -142,7 +142,7 @@ export default class RegisterFields extends Component {
                     }
 
                  </Grid.Column>
-                 <Grid.Column width={4}>
+                 <Grid.Column width={4} style={{marginTop:'-2%'}}>
                    {this.state.lengthFound == false ?
                     <span style={{color:'red'}}>Minimum 8 characters</span>:
                     <span>
@@ -165,7 +165,7 @@ export default class RegisterFields extends Component {
                       <h3>Account Number</h3>
                     </Grid.Column>
                   </Grid.Row>
-                  <Grid.Row style={{marginTop:'3%'}}>
+                  <Grid.Row style={{marginTop:'2%'}}>
                     <Grid.Column width={16}>
                       <Input fluid/>
                     </Grid.Column>
@@ -175,12 +175,12 @@ export default class RegisterFields extends Component {
                       <h3>Postcode</h3>
                     </Grid.Column>
                   </Grid.Row>
-                  <Grid.Row style={{marginTop:'3%'}}>
+                  <Grid.Row style={{marginTop:'2%'}}>
                     <Grid.Column width={16}>
                       <Input fluid/>
                     </Grid.Column>
                   </Grid.Row>
-                  <Grid.Row style={{marginTop:'5%'}}>
+                  <Grid.Row style={{marginTop:'2%'}}>
                     <Grid.Column>
                       <Message>
                         <Message.Header>

@@ -8,6 +8,8 @@ import RegisterFieldsMobile from '../components/registerFieldsMobile.jsx';
 import RegisterFieldsTablet from '../components/registerFieldsTablet.jsx';
 import AppBar from '../components/appBar.jsx';
 import DividerLine from '../components/divider.jsx';
+import AppBarMobile from '../components/appBarMobile.jsx';
+import AppBarTablet from '../components/appBarTablet.jsx'
 
 export default class Registrationpage extends Component {
   constructor(){
@@ -42,7 +44,7 @@ export default class Registrationpage extends Component {
           </Grid.Row>
           <Grid.Row only='tablet'>
             <Grid.Column width={16}>
-              <AppBar />
+              <AppBarTablet />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row only='tablet'>
@@ -60,11 +62,11 @@ export default class Registrationpage extends Component {
               <RegisterFieldsTablet />
             </Grid.Column>
           </Grid.Row>
-          {/* <Grid.Row only='mobile'>
+          <Grid.Row only='mobile'>
             <Grid.Column width={16}>
-              <AppBar />
+              <AppBarMobile />
             </Grid.Column>
-          </Grid.Row> */}
+          </Grid.Row>
           <Grid.Row only='mobile' style={{marginTop:'7px'}}>
             <Grid.Column width={16}>
               <RegisterHeaderMobile />

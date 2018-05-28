@@ -31,13 +31,13 @@ export default class LoginFieldsMobile extends Component {
                 </Grid.Row>
 
                 <Grid.Row>
-                  <Grid.Column width={16}>
+                  <Grid.Column width={16} style={{marginTop:'-4%'}}>
                     <Input fluid/>
                   </Grid.Column>
                 </Grid.Row>
 
                 <Grid.Row>
-                  <Grid.Column width={16}>
+                  <Grid.Column width={16} style={{marginTop:'-4%'}}>
                     <h4 style={{color:'gray'}}>abc@xyz.com</h4>
                   </Grid.Column>
                 </Grid.Row>
@@ -53,7 +53,7 @@ export default class LoginFieldsMobile extends Component {
                 </Grid.Row>
 
                 <Grid.Row>
-                  <Grid.Column width={16}>
+                  <Grid.Column width={16} style={{marginTop:'-4%'}}>
                     <Input type='password' fluid/>
                   </Grid.Column>
                 </Grid.Row>

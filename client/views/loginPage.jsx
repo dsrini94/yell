@@ -7,8 +7,12 @@ import LoginFields from '../components/loginFields.jsx';
 import LoginFieldsMobile from '../components/loginFieldsMobile.jsx';
 import LoginFieldsTablet from '../components/loginFieldsTablet.jsx'
 import AppBar from '../components/appBar.jsx';
-import DividerLine from '../components/divider.jsx'
-
+import DividerLine from '../components/divider.jsx';
+import MenuBar from '../components/menuBar.jsx';
+import MenuBarMobile from '../components/menuBarMobile.jsx';
+import MenuBarTablet from '../components/menuBarTablet.jsx'
+import AppBarMobile from '../components/appBarMobile.jsx';
+import AppBarTablet from '../components/appBarTablet.jsx'
 export default class Loginpage extends Component {
   constructor(){
     super();
@@ -42,7 +46,7 @@ export default class Loginpage extends Component {
           </Grid.Row>
           <Grid.Row only='tablet'>
             <Grid.Column width={16}>
-              <AppBar />
+              <AppBarTablet />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row only='tablet'>
@@ -60,11 +64,11 @@ export default class Loginpage extends Component {
               <LoginFieldsTablet />
             </Grid.Column>
           </Grid.Row>
-          {/* <Grid.Row only='mobile'>
+          <Grid.Row only='mobile'>
             <Grid.Column width={16}>
-              <AppBar />
+              <AppBarMobile />
             </Grid.Column>
-          </Grid.Row> */}
+          </Grid.Row>
           <Grid.Row only='mobile' style={{marginTop:'7px'}}>
             <Grid.Column width={16}>
               <LoginHeaderMobile />
