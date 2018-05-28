@@ -47,7 +47,7 @@ export default class RegisterFields extends Component {
         <Grid>
           <Grid.Row>
             <Grid.Column width={3} />
-            <Grid.Column width ={10}>
+            <Grid.Column width ={6}>
               <Grid>
                 <Grid.Row>
                   <Grid.Column width={16}>
@@ -72,15 +72,6 @@ export default class RegisterFields extends Component {
                 <Grid.Row>
                   <Grid.Column width={16}>
                     <Input fluid/>
-                  </Grid.Column>
-                </Grid.Row>
-                <Grid.Row>
-                  <Grid.Column>
-                    <Message >
-                        <p>
-                          <strong>Note:</strong> &nbsp; We will automatically create your display name, e.g JSmith-39. You can change this on the My Settings page after your account is created.
-                        </p>
-                      </Message>
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
@@ -109,48 +100,35 @@ export default class RegisterFields extends Component {
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
-                  <Grid.Column width={4}>
-
+                  <Grid.Column width={8}>
                     {this.state.upperFound == false ?
-                    <span style={{color:'red'}}>One Uppercase</span>:
-                  <span>
-                    <span style={{color:'green'}}>One Uppercase</span>
-                    <Icon name='checkmark box' color='green' />
-                  </span>
+                    <Icon name='circle thin' /> :
+                    <Icon name='circle' color='green' />
                    }
-
+                    <span>One Uppercase</span>
                 </Grid.Column>
-                <Grid.Column width={4}>
-
+                <Grid.Column width={8}>
                   {this.state.numberFound == false ?
-                    <span style={{color:'red'}} >One Number</span>:
-                    <span>
-                    <span style={{color:'green'}}>One Number</span>
-                  <Icon name='checkmark box' color='green' />
-                  </span>
+                  <Icon name='circle thin' />:
+                  <Icon name='circle' color='green' />
                   }
-
+                  <span>One Number</span>
                   </Grid.Column>
-                  <Grid.Column width={4}>
-
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={8}>
                     {this.state.characterFound == false ?
-                    <span style={{color:'red'}}>One special Character</span>:
-                    <span>
-                    <span style={{color:'green'}}>One special Character</span>
-                    <Icon name='checkmark box' color='green' />
-                   </span>
+                    <Icon name='circle thin' />:
+                    <Icon name='circle' color='green' />
                     }
-
+                    <span>One special Character</span>
                  </Grid.Column>
-                 <Grid.Column width={4}>
+                 <Grid.Column width={8}>
                    {this.state.lengthFound == false ?
-                    <span style={{color:'red'}}>Minimum 8 characters</span>:
-                    <span>
-                    <span style={{color:'green'}}>Minimum 8 characters</span>
-                   <Icon name='checkmark box' color='green' />
-                   </span>
+                   <Icon name='circle thin' />:
+                   <Icon name='circle' color='green' />
                    }
-
+                   <span>Minimum 8 characters</span>
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
@@ -165,37 +143,19 @@ export default class RegisterFields extends Component {
                       <h3>Account Number</h3>
                     </Grid.Column>
                   </Grid.Row>
-                  <Grid.Row style={{marginTop:'3%'}}>
-                    <Grid.Column width={16}>
-                      <Input fluid/>
-                    </Grid.Column>
-                  </Grid.Row>
-                  <Grid.Row style={{marginTop:'3%'}}>
-                    <Grid.Column width={16}>
-                      <h3>Postcode</h3>
-                    </Grid.Column>
-                  </Grid.Row>
-                  <Grid.Row style={{marginTop:'3%'}}>
+                  <Grid.Row style={{marginTop:'5%'}}>
                     <Grid.Column width={16}>
                       <Input fluid/>
                     </Grid.Column>
                   </Grid.Row>
                   <Grid.Row style={{marginTop:'5%'}}>
-                    <Grid.Column>
-                      <Message>
-                        <Message.Header>
-                          How to find your account number? :
-                        </Message.Header>
-                        <p>
-                          In emails or posts we have sent you.
-                        </p>
-                        <Message.Header>
-                        Can't find your account number?:
-                        </Message.Header>
-                        <p>
-                          Contact us <span style={{color:'blue'}}> online </span> or <span style={{color:'blue'}}> email us. </span>
-                        </p>
-                      </Message>
+                    <Grid.Column width={16}>
+                      <h3>Postcode</h3>
+                    </Grid.Column>
+                  </Grid.Row>
+                  <Grid.Row style={{marginTop:'5%'}}>
+                    <Grid.Column width={16}>
+                      <Input fluid/>
                     </Grid.Column>
                   </Grid.Row>
                   </span>
@@ -211,6 +171,38 @@ export default class RegisterFields extends Component {
                   </Grid.Column>
                 </Grid.Row>
               </Grid>
+            </Grid.Column>
+            <Grid.Column width={4}  >
+              <Grid.Row style={{marginTop:'34%'}}>
+                <Grid.Column>
+                  <Message >
+                      <p>
+                        <strong>Note:</strong> &nbsp; We will automatically create your display name, e.g JSmith-39. You can change this on the My Settings page after your account is created.
+                      </p>
+                    </Message>
+                </Grid.Column>
+              </Grid.Row>
+              {this.state.checked == true ? <Grid.Row style={{marginTop:'165%'}}>
+                <Grid.Column>
+                  <Message>
+                    <Message.Header>
+                      How to find your account number? :
+                    </Message.Header>
+                    <p>
+                      In emails or posts we have sent you.
+                    </p>
+                    <Message.Header>
+                    Can't find your account number?:
+                    </Message.Header>
+                    <p>
+                      Contact us <span style={{color:'blue'}}> online </span> or <span style={{color:'blue'}}> email us. </span>
+                    </p>
+                  </Message>
+                </Grid.Column>
+              </Grid.Row>:
+              ''
+            }
+
             </Grid.Column>
             <Grid.Column width={3} />
           </Grid.Row>

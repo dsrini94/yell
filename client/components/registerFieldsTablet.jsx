@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Grid,Input,Checkbox,Button,Divider,Icon,Image,Message,Radio} from 'semantic-ui-react';
 
-export default class RegisterFields extends Component {
+export default class RegisterFieldsTablet extends Component {
   constructor(){
     super();
     this.state={
@@ -46,8 +46,8 @@ export default class RegisterFields extends Component {
       <div>
         <Grid>
           <Grid.Row>
-            <Grid.Column width={3} />
-            <Grid.Column width ={10}>
+            <Grid.Column width={2} />
+            <Grid.Column width ={12}>
               <Grid>
                 <Grid.Row>
                   <Grid.Column width={16}>
@@ -212,7 +212,7 @@ export default class RegisterFields extends Component {
                 </Grid.Row>
               </Grid>
             </Grid.Column>
-            <Grid.Column width={3} />
+            <Grid.Column width={2} />
           </Grid.Row>
         </Grid>
       </div>
