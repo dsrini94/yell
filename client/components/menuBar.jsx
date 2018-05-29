@@ -1,6 +1,6 @@
 import React from 'react';
 import { Segment,Grid,Image,Icon } from 'semantic-ui-react'
-
+import { Link } from 'react-router-dom';
 function MenuBar(){
   return(
     <Segment style={styles.container}>
@@ -14,12 +14,12 @@ function MenuBar(){
 
           <Grid.Column width={7}/>
 
-          <Grid.Column width={2} style={styles.loginContainer}>
+          <Grid.Column width={2} as={Link} to='/login' style={styles.loginContainer}>
              <Icon name="user circle" size='big'/>
              <span style={styles.loginText}>Log In</span>
           </Grid.Column>
 
-          <Grid.Column width={2} style={styles.loginContainer}>
+          <Grid.Column width={2} as={Link} to='/register' style={styles.loginContainer}>
             <span style={styles.loginText}>Create Account</span>
           </Grid.Column>
 
@@ -39,7 +39,8 @@ const styles={
     textDecoration: 'underline',
   },
   loginContainer:{
-    marginTop:'10px'
+    marginTop:'10px',
+    color:'black'
   }
 }
 

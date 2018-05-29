@@ -1,7 +1,8 @@
 const express = require('express')
     , app = express()
+    , http = require('http')
     , server = http.createServer(app)
-    , port = process.env.port || 5000;
+    , port = process.env.port || 5050;
 
 // allowing CORS control to the app server ---->
 app.use(function(req, res, next) {
@@ -24,6 +25,6 @@ server.listen(port, (err, res)=>{
   if (err) {
     console.log('err in serving up the app server - > ',err);
   } else {
-    console.log('server successfully serverd up in port 5000');
+    console.log('server successfully serverd up in port 5050');
   }
 });

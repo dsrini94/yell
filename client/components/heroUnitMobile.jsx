@@ -17,7 +17,7 @@ function HeroUnitTablet(){
         <Input icon='search' iconPosition='left' placeholder='Search...'  style={styles.componentPadding}/>
         <Input icon='globe' iconPosition='left' placeholder='UK town or postcode'  style={styles.componentPadding}/>
         <br/>
-        <Button color='yellow' style={styles.componentPadding}>Seatch</Button>
+        <Button color='yellow' style={styles.componentPadding}>Search</Button>
      </center>
       </div>
 

@@ -1,21 +1,19 @@
 import React, {Component} from 'react';
 import {Grid} from 'semantic-ui-react';
-import LoginHeader from '../components/loginHeader.jsx';
-import LoginHeaderMobile from '../components/loginHeadermobile.jsx';
-import LoginHeaderTablet from '../components/loginHeaderTablet.jsx';
-import LoginFields from '../components/loginFields.jsx';
-import LoginFieldsMobile from '../components/loginFieldsMobile.jsx';
-import LoginFieldsTablet from '../components/loginFieldsTablet.jsx'
+import RegisterHeader from '../components/registerHeader.jsx';
+import RegisterHeaderMobile from '../components/registerHeaderMobile.jsx';
+import RegisterHeaderTablet from '../components/registerHeaderTablet.jsx';
+import RegisterFields from '../components/registerFields.jsx';
+import RegisterFieldsMobile from '../components/registerFieldsMobile.jsx';
+import RegisterFieldsTablet from '../components/registerFieldsTablet.jsx';
 import AppBar from '../components/appBar.jsx';
 import DividerLine from '../components/divider.jsx';
 import DividerBottom from '../components/dividerBottom.jsx';
-import MenuBar from '../components/menuBar.jsx';
-import MenuBarMobile from '../components/menuBarMobile.jsx';
-import MenuBarTablet from '../components/menuBarTablet.jsx'
 import AppBarMobile from '../components/appBarMobile.jsx';
 import AppBarTablet from '../components/appBarTablet.jsx';
 import Footer from '../components/footer.jsx';
-export default class Loginpage extends Component {
+
+export default class Registrationpage extends Component {
   constructor(){
     super();
     this.state={
@@ -33,7 +31,7 @@ export default class Loginpage extends Component {
           </Grid.Row>
           <Grid.Row only='computer'>
             <Grid.Column width={16}>
-              <LoginHeader />
+              <RegisterHeader />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row only='computer'>
@@ -43,7 +41,7 @@ export default class Loginpage extends Component {
           </Grid.Row>
           <Grid.Row only='computer'>
             <Grid.Column width={16}>
-              <LoginFields />
+              <RegisterFields />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row only='computer'>
@@ -63,7 +61,7 @@ export default class Loginpage extends Component {
           </Grid.Row>
           <Grid.Row only='tablet'>
             <Grid.Column width={16}>
-              <LoginHeaderTablet />
+              <RegisterHeaderTablet />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row only='tablet'>
@@ -73,7 +71,7 @@ export default class Loginpage extends Component {
           </Grid.Row>
           <Grid.Row only='tablet'>
             <Grid.Column width={16}>
-              <LoginFieldsTablet />
+              <RegisterFieldsTablet />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row only='tablet'>
@@ -93,7 +91,7 @@ export default class Loginpage extends Component {
           </Grid.Row>
           <Grid.Row only='mobile' style={{marginTop:'7px'}}>
             <Grid.Column width={16}>
-              <LoginHeaderMobile />
+              <RegisterHeaderMobile />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row only='mobile'>
@@ -103,7 +101,7 @@ export default class Loginpage extends Component {
           </Grid.Row>
           <Grid.Row only='mobile'>
             <Grid.Column width={16}>
-              <LoginFieldsMobile />
+              <RegisterFieldsMobile />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row only='mobile'>

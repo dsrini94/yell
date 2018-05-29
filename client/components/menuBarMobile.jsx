@@ -1,22 +1,23 @@
 import React from 'react';
 import { Segment,Grid,Image,Icon } from 'semantic-ui-react'
+import { Link } from 'react-router-dom';
 
 function MenuBarMobile(){
   return(
     <Segment style={styles.container}>
       <Grid >
         <Grid.Row>
-          <Grid.Column width={4}>
+          <Grid.Column width={4} style={styles.loginImage}>
              <Image src='./client/assets/images/logo.png' size='big' />
           </Grid.Column>
-          <Grid.Column width={3} />
+          <Grid.Column width={2} />
 
-          <Grid.Column width={4} style={styles.loginContainer}>
+          <Grid.Column width={5} as={Link} to='/login' style={styles.loginContainer}>
              <Icon name="user circle" size='large'/>
              <span style={styles.loginText}>Log In</span>
           </Grid.Column>
 
-          <Grid.Column width={5} style={styles.loginContainer}>
+          <Grid.Column width={5} as={Link} to='/register' style={styles.loginContainer}>
             <span style={styles.loginText}>Create Account</span>
           </Grid.Column>
 
@@ -36,6 +37,10 @@ const styles={
     textDecoration: 'underline',
   },
   loginContainer:{
+    marginTop:'10px',
+    color:'black'
+  },
+  loginImage:{
     marginTop:'10px'
   }
 }
