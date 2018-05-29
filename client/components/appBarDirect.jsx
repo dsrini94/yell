@@ -1,7 +1,7 @@
 import React from 'react';
 import { Segment,Grid,Icon } from 'semantic-ui-react'
 
-function AppBar(){
+function AppBarDirect(){
   return(
     <Segment inverted style={styles.container}>
       <Grid >
@@ -51,4 +51,4 @@ const styles={
 }
 
 
-export default AppBar;
+export default AppBarDirect;

@@ -21,18 +21,18 @@ export default class InfoBox extends Component
       },
       numberContainer:{
         backgroundColor:this.props.color,
-        padding:45
+        padding:20
       },
       number:{
         fontWeight:'bold',
         color:'white',
-        fontSize:40
+        fontSize:20
       },
       textContainer:{
-        padding:25
+        padding:15
       },
       text:{
-        fontSize:18
+        fontSize:15
       },
       tagLine:{
         fontSize:12
@@ -40,15 +40,16 @@ export default class InfoBox extends Component
     }
 
     return(
-      <Segment style={styles.container}>
         <Grid>
-          <Grid.Row columns={2}>
+          <Grid.Row>
             <Grid.Column>
               <div style={styles.numberContainer}>
                 <center><span style={styles.number}>{this.props.number}</span></center>
               </div>
             </Grid.Column>
+          </Grid.Row>
 
+          <Grid.Row style={{marginTop:-30}}>
             <Grid.Column>
               <div style={styles.textContainer}>
                 <center><span style={styles.text}>{this.props.text}</span></center>
@@ -57,7 +58,6 @@ export default class InfoBox extends Component
             </Grid.Column>
           </Grid.Row>
         </Grid>
-      </Segment>
     );
   }
 }

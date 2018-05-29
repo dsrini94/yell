@@ -1,20 +1,21 @@
 import React from 'react';
 import { Segment,Grid,Image,Icon } from 'semantic-ui-react'
 
-function MenuBar(){
+function MenuBarDirectMobile(){
   return(
     <Segment style={styles.container}>
       <Grid >
         <Grid.Row>
-          <Grid.Column width={2}/>
 
-          <Grid.Column width={2}>
-             <Image src='./client/assets/images/businessLogo.png' size='large' style={styles.image}/>
+          <Grid.Column width={2} />
+
+          <Grid.Column width={4}>
+            <Image src={'./client/assets/images/businessLogo.png'} size="large"/>
           </Grid.Column>
 
-          <Grid.Column width={9}/>
+          <Grid.Column width={5} />
 
-          <Grid.Column width={2} style={styles.loginContainer}>
+          <Grid.Column width={5} style={styles.loginContainer}>
             <span style={styles.loginText}>Alan's Account</span>
           </Grid.Column>
 
@@ -33,10 +34,6 @@ function MenuBar(){
 
 const styles={
 
-  container:{
-    margin:0,
-    padding:0
-  },
   line:{
     padding:2,
     borderRadius:0
@@ -45,13 +42,15 @@ const styles={
     marginTop:'10px',
     padding:10
   },
-  image:{
-    padding:10
-  },
   loginText:{
     fontSize:15,
+  },
+  container:{
+    paddingBottom:0,
+    paddingLeft:0,
+    paddingRight:0,
   }
 }
 
 
-export default MenuBar;
+export default MenuBarDirectMobile;
