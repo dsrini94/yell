@@ -1,7 +1,7 @@
 import React,  {Component} from 'react';
 import Login from './views/loginPage.jsx';
 import HomePage from './views/homePage.jsx';
-import Register from './views/registrationPage.jsx'
+import Register from './views/registrationPage.jsx';
 import { HashRouter, Route, Switch} from 'react-router-dom';
 
 export default class AppRouter extends Component{
