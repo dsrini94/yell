@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 
-import { Menu, Segment, Table, Checkbox, Grid, Header } from 'semantic-ui-react';
+import { Menu, Segment, Table, Checkbox, Grid, Header, Label } from 'semantic-ui-react';
 
 import SwipeableViews from 'react-swipeable-views';
 
@@ -16,7 +16,7 @@ export default class TableMenu extends Component
   {
     super();
     this.state={
-      activeItem:'Yell.com (13)',
+      activeItem:'Yell.com',
       index:0
     }
   }
@@ -58,10 +58,22 @@ export default class TableMenu extends Component
     return(
       <div>
         <Menu  pointing secondary>
-          <Menu.Item name='Yell.com (13)' active={activeItem ==='Yell.com (13)' } onClick={this.handleItemClick.bind(this,0)} />
-          <Menu.Item name='connect (1)' active={activeItem === 'connect (1)'} onClick={this.handleItemClick.bind(this,1)} />
-          <Menu.Item name='Reputation (2)' active={activeItem === 'Reputation (2)'} onClick={this.handleItemClick.bind(this,2)} />
-          <Menu.Item name='Freelistings (5)' active={activeItem === 'Freelistings (5)'} onClick={this.handleItemClick.bind(this,3)} />
+          <Menu.Item name='Yell.com' active={activeItem ==='Yell.com' } onClick={this.handleItemClick.bind(this,0)}>
+              Yell.com
+              <Label color='orange'>3</Label>
+          </Menu.Item>
+          <Menu.Item name='Connect' active={activeItem === 'Connect'} onClick={this.handleItemClick.bind(this,1)} >
+            Connect
+            <Label color='orange'>1</Label>
+          </Menu.Item>
+          <Menu.Item name='Reputation' active={activeItem === 'Reputation'} onClick={this.handleItemClick.bind(this,2)} >
+            Reputation
+            <Label color='orange'>2</Label>
+          </Menu.Item>
+          <Menu.Item name='Freelistings' active={activeItem === 'Freelistings'} onClick={this.handleItemClick.bind(this,3)} >
+            Freelistings
+            <Label color='orange'>5</Label>
+          </Menu.Item>
         </Menu>
 
         <SwipeableViews index={this.state.index}>
