@@ -38,14 +38,26 @@ export default class RegisterFields extends Component {
       if(this.state.password.length >= 8){
         this.setState({lengthFound:true});
       }
+      else{
+        this.setState({lengthFound:false});
+      }
       if(characterFormat.test(this.state.password) == true) {
         this.setState({characterFound:true});
+      }
+      else{
+        this.setState({characterFound:false});
       }
       if(numberFormat.test(this.state.password) == true ){
         this.setState({numberFound:true});
       }
+      else{
+        this.setState({numberFound:false});
+      }
       if(upperFormat.test(this.state.password) == true ){
         this.setState({upperFound:true});
+      }
+      else{
+        this.setState({upperFound:false});
       }
     })
     // var format = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;

@@ -57,7 +57,7 @@ export default class LoginFieldsTablet extends Component {
                     <label style={{textAlign:'right',textDecoration: 'underline',float:'right'}}>Forgot Password?</label>
                 </Form.Field>
                 <Form.Field>
-                    <p>By logging in you agree to Yell's Conditions of Use and <span style={{textDecoration:'underline',color:'blue'}}>Privacy Policy</span></p>
+                    <p style={{fontSize:'11px'}}>By logging in you agree to Yell's Conditions of Use and <span style={{textDecoration:'underline',color:'blue'}}>Privacy Policy</span></p>
                 </Form.Field>
                 <Form.Field as={Link} to='/dashboard'>
                     <Button fluid style={{background:'#fedb00'}}>Login</Button>

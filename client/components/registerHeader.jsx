@@ -10,7 +10,7 @@ const registerHeader = (props) => (
           <Image size='tiny' src='https://www.yell.com/img/yell_icon_256x256.png' />
         </Grid.Column>
         <Grid.Column width={9}/>
-        <Grid.Column as={Link} to='/login' width={2} style={{marginTop:'1%',textAlign:'right',color:'black'}}>
+        <Grid.Column as={Link} to='/login' width={2} style={{marginTop:'1.5%',textAlign:'right',color:'black'}}>
           <Icon name="user circle" size="big"/>
           <span>Log In</span>
         </Grid.Column>

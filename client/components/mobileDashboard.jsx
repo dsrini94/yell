@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Grid,Checkbox } from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Grid, Checkbox ,Accordion} from 'semantic-ui-react'
 
 import MenuBarDirectMobile from './menuBarDirectMobile.jsx';
 import InfoBox from './infoBoxMobile.jsx';
@@ -10,6 +10,7 @@ import Graph1Data from './../data/graph1Data.js';
 import Graph2Data from './../data/graph2Data.js';
 import Graph3Data from './../data/graph3Data.js';
 import Graph4Data from './../data/graph4Data.js';
+import DashboardFooter from './../components/dashboardFooter.jsx';
 import SwipeableViews from 'react-swipeable-views';
 
 export default class MobileDashboard extends Component
@@ -20,7 +21,8 @@ export default class MobileDashboard extends Component
     this.state={
       visible:false,
       activeItem:'Yell.com (13)',
-      index:0
+      index:0,
+      activeIndexAccordion:99
     }
   }
 
@@ -31,6 +33,10 @@ export default class MobileDashboard extends Component
   handleItemClick(e, { name }) {
     this.setState({ activeItem: name,index:e })
 }
+handleClick(e){
+  const newIndex = this.state.activeIndexAccordion === e ? -1 : e
+  this.setState({ activeIndexAccordion: newIndex })
+}
 
 renderTableData()
 {
@@ -39,16 +45,54 @@ renderTableData()
       var color =  item.status == 'live' ? 'green' : '#ed9147';
       return(
         <Grid.Row key={key}>
-          <Grid.Column width={2} >
-            <div style={{padding:3,backgroundColor:color,float:'left',height:32}}></div>
-            <Checkbox style={{float:'right',padding:5}} />
+          <Grid.Column width={16}>
+            <Accordion>
+               <Accordion.Title active={this.state.activeIndexAccordion === key} index={key} onClick={this.handleClick.bind(this,key)}>
+                 <Grid>
+                   <Grid.Row style={{padding:0}}>
+                     <Grid.Column width={2}>
+                       <div style={{padding:3,backgroundColor:color,float:'left',height:40}}></div>
+                       <Checkbox style={{padding:5,marginTop:'17%'}} />
+                     </Grid.Column>
+                     <Grid.Column width={5} style={{marginTop:'2%'}}>
+                        {item.name}
+                     </Grid.Column>
+                     <Grid.Column width={4} style={{marginTop:'2%'}}>
+                       {item.number}
+                     </Grid.Column>
+                     <Grid.Column width={3} style={{marginTop:'2%'}}>
+                       <span style={{color:color,fontWeight:'bold',padding:20}}>{item.status}</span>
+                     </Grid.Column>
+                      <Grid.Column width={2} style={{marginTop:'2%'}}>
+                        <Icon name='dropdown' style={{float:'right'}}/>
+                      </Grid.Column>
+                   </Grid.Row>
+                 </Grid>
+             </Accordion.Title>
+               <Accordion.Content active={this.state.activeIndexAccordion === key}>
+                 <Grid>
+                   <Grid.Row>
+                     <Grid.Column width={2} />
+                     <Grid.Column width={5}>
+                       <Header as='h5'>Classification</Header>
+                         {item.classification}
+                     </Grid.Column>
+                     <Grid.Column width={3}>
+                        <Header as='h5'>Location</Header>
+                        {item.location}
+                     </Grid.Column>
+                     <Grid.Column width={4}>
+                       <Header as='h5'>Date</Header>
+                       {item.date}
+                     </Grid.Column>
+                     <Grid.Column width={2} style={{marginTop:'3%'}}>
+                       <label >Edit</label>
+                     </Grid.Column>
+                   </Grid.Row>
+                 </Grid>
+               </Accordion.Content>
+             </Accordion>
           </Grid.Column>
-           <Grid.Column width={5}>{item.name}</Grid.Column>
-           <Grid.Column width={4}>{item.number}</Grid.Column>
-           <Grid.Column width={3}><span style={{color:color,fontWeight:'bold',padding:20}}>{item.status}</span></Grid.Column>
-           <Grid.Column width={2}>
-             <Icon name='angle down' onClick={this.expandDetails.bind(this,key)}/>
-           </Grid.Column>
          </Grid.Row>
  );
 
@@ -56,26 +100,11 @@ renderTableData()
   )
 }
 
-expandDetails(i){
-  console.log('here');
-  return(
-    YellData.map((item,key)=>{
-      return(
-        <div>
-          <Grid.Row>
-            <Grid.Column width={16}>
-            </Grid.Column>
-          </Grid.Row>
-        </div>
-      )
-    })
-  )
-}
-
   render()
   {
-    const { activeItem } = this.state;
+    const { activeItem , activeIndexAccordion } = this.state;
     return(
+      <div>
       <Sidebar.Pushable as={Segment}>
           <Sidebar as={Menu} animation='push' width='thin' visible={this.state.visible} icon='labeled' vertical inverted>
             <Menu.Item name='home' >
@@ -204,6 +233,8 @@ expandDetails(i){
 
           </Sidebar.Pusher>
         </Sidebar.Pushable>
+         <DashboardFooter />
+       </div>
     );
   }
 }

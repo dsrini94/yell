@@ -32,7 +32,6 @@ export default class DashBoard extends React.Component
         <Grid.Row only='mobile'>
           <Grid.Column only='mobile'>
             <MobileDashboard />
-            {/* <DashboardFooter /> */}
           </Grid.Column>
         </Grid.Row>
       </Grid>
