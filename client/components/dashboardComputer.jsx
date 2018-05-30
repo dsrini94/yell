@@ -1,12 +1,9 @@
 import React,{ Component } from 'react';
 
-<<<<<<< HEAD
+
 import { Grid, Menu, Segment, Icon, Header, Form, Input, Button, Table, Label } from 'semantic-ui-react';
 import SwipeableViews from 'react-swipeable-views';
 
-=======
-import { Grid, Menu, Segment, Icon, Header, Form, Input, Button } from 'semantic-ui-react'
->>>>>>> 3c17a423719d21b042eb243d44baa23033e9f4d5
 
 import InfoBox from './infoBoxComputer.jsx';
 import TableMenu from './tableComputer.jsx';
