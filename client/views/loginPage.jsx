@@ -91,7 +91,7 @@ export default class Loginpage extends Component {
               <AppBarMobile />
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row only='mobile'>
+          <Grid.Row only='mobile' style={{marginTop:'7px'}}>
             <Grid.Column width={16}>
               <LoginHeaderMobile />
             </Grid.Column>
