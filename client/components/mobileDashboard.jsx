@@ -1,10 +1,16 @@
 import React, { Component} from 'react';
 
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Grid } from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Grid,Checkbox } from 'semantic-ui-react'
 
 import MenuBarDirectMobile from './menuBarDirectMobile.jsx';
 import InfoBox from './infoBoxMobile.jsx';
-
+import Charts from './chart.jsx';
+import YellData from './../data/yellData.js';
+import Graph1Data from './../data/graph1Data.js';
+import Graph2Data from './../data/graph2Data.js';
+import Graph3Data from './../data/graph3Data.js';
+import Graph4Data from './../data/graph4Data.js';
+import SwipeableViews from 'react-swipeable-views';
 
 export default class MobileDashboard extends Component
 {
@@ -12,7 +18,9 @@ export default class MobileDashboard extends Component
   {
     super();
     this.state={
-      visible:false
+      visible:false,
+      activeItem:'Yell.com (13)',
+      index:0
     }
   }
 
@@ -20,8 +28,53 @@ export default class MobileDashboard extends Component
     this.setState({visible:!this.state.visible})
   }
 
+  handleItemClick(e, { name }) {
+    this.setState({ activeItem: name,index:e })
+}
+
+renderTableData()
+{
+  return(
+    YellData.map((item,key)=>{
+      var color =  item.status == 'live' ? 'green' : '#ed9147';
+      return(
+        <Grid.Row key={key}>
+          <Grid.Column width={2} >
+            <div style={{padding:3,backgroundColor:color,float:'left',height:32}}></div>
+            <Checkbox style={{float:'right',padding:5}} />
+          </Grid.Column>
+           <Grid.Column width={5}>{item.name}</Grid.Column>
+           <Grid.Column width={4}>{item.number}</Grid.Column>
+           <Grid.Column width={3}><span style={{color:color,fontWeight:'bold',padding:20}}>{item.status}</span></Grid.Column>
+           <Grid.Column width={2}>
+             <Icon name='angle down' onClick={this.expandDetails.bind(this,key)}/>
+           </Grid.Column>
+         </Grid.Row>
+ );
+
+    })
+  )
+}
+
+expandDetails(i){
+  console.log('here');
+  return(
+    YellData.map((item,key)=>{
+      return(
+        <div>
+          <Grid.Row>
+            <Grid.Column width={16}>
+            </Grid.Column>
+          </Grid.Row>
+        </div>
+      )
+    })
+  )
+}
+
   render()
   {
+    const { activeItem } = this.state;
     return(
       <Sidebar.Pushable as={Segment}>
           <Sidebar as={Menu} animation='push' width='thin' visible={this.state.visible} icon='labeled' vertical inverted>
@@ -90,7 +143,62 @@ export default class MobileDashboard extends Component
                   </Segment>
                 </Grid.Column>
               </Grid.Row>
-
+              <Grid.Row>
+                <Grid.Column width={16}>
+                  <div>
+                  <Menu pointing secondary style={{fontSize:'12px'}}>
+                    <Menu.Item name='Yell.com (13)' active={activeItem ==='Yell.com (13)' } onClick={this.handleItemClick.bind(this,0)} />
+                    <Menu.Item name='connect (1)' active={activeItem === 'connect (1)'} onClick={this.handleItemClick.bind(this,1)} />
+                    <Menu.Item name='Reputation (2)' active={activeItem === 'Reputation (2)'} onClick={this.handleItemClick.bind(this,2)} />
+                    <Menu.Item name='Freelistings (5)' active={activeItem === 'Freelistings (5)'} onClick={this.handleItemClick.bind(this,3)} />
+                  </Menu>
+                  <center><Header as={'h4'}>Performance on Yell.Com</Header></center>
+                  <SwipeableViews index={this.state.index}>
+                    <div style={{overflow:'hidden'}}>
+                      <SwipeableViews>
+                        <div style={{overflow:'hidden'}}>
+                          <Charts graphData={Graph1Data} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']} width={300} height={180}/>
+                        </div>
+                        <div style={{overflow:'hidden'}}>
+                          <Charts graphData={Graph2Data} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']} width={300} height={180}/>
+                        </div>
+                        <div style={{overflow:'hidden'}}>
+                          <Charts graphData={Graph3Data} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']} width={300} height={180}/>
+                        </div>
+                        <div style={{overflow:'hidden'}}>
+                          <Charts graphData={Graph4Data} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']} width={300} height={180}/>
+                        </div>
+                      </SwipeableViews>
+                      <Grid>
+                        <Grid.Row style={{backgroundColor:'#D7DADC',marginTop:'5%'}}>
+                          <Grid.Column width={2} />
+                          <Grid.Column width={5}>
+                            <Header as={'h5'}>Advert Name</Header>
+                          </Grid.Column>
+                          <Grid.Column width={4}>
+                            <Header as={'h5'}>Order Number/Line</Header>
+                          </Grid.Column>
+                          <Grid.Column width={3}>
+                            <Header as={'h5'}>Status</Header>
+                          </Grid.Column>
+                          <Grid.Column width={2} />
+                        </Grid.Row>
+                           {this.renderTableData()}
+                      </Grid>
+                    </div>
+                    <div style={{overflow:'hidden'}}>
+                      Connect
+                    </div>
+                    <div style={{overflow:'hidden'}}>
+                      Reputation
+                    </div>
+                    <div style={{overflow:'hidden'}}>
+                      Freelistings
+                   </div>
+                  </SwipeableViews>
+                    </div>
+                </Grid.Column>
+              </Grid.Row>
             </Grid>
           </div>
 

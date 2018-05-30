@@ -6,7 +6,8 @@ import { Menu,Grid } from 'semantic-ui-react'
 import DashBoardComputer from './../components/dashboardComputer.jsx'
 import AppBarDirect from './../components/appBarDirect.jsx'
 import MenuBarDirect from './../components/menuBarDirect.jsx';
-
+import DashboardFooter from './../components/dashboardFooter.jsx';
+import DividerBottom from './../components/dividerBottom.jsx';
 //importing Moobile components
 import MobileDashboard from './../components/mobileDashboard.jsx'
 
@@ -23,12 +24,15 @@ export default class DashBoard extends React.Component
             <AppBarDirect/>
             <MenuBarDirect/>
             <DashBoardComputer/>
+            <DividerBottom />
+            <DashboardFooter />
           </Grid.Column>
         </Grid.Row>
 
         <Grid.Row only='mobile'>
           <Grid.Column only='mobile'>
             <MobileDashboard />
+            {/* <DashboardFooter /> */}
           </Grid.Column>
         </Grid.Row>
       </Grid>

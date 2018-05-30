@@ -8,11 +8,6 @@ export default class Chart extends Component {
     super(props);
   }
   render(){
-    var icon='mobile';
-    var text='CALLS';
-    var count=542;
-    var color =['#0083CA'];
-
     return(
       <Grid>
         <Grid.Row>
@@ -30,8 +25,8 @@ export default class Chart extends Component {
               xType={'text'}
               areaColors={this.props.color}
               margin={{top: 30, right: 30, bottom: 30, left: 30}}
-              width={300}
-              height={130}
+              width={this.props.width}
+              height={this.props.height}
                data={[
                  this.props.graphData
                ]}

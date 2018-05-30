@@ -4,9 +4,11 @@ import { Menu, Segment, Table, Checkbox, Grid, Header } from 'semantic-ui-react'
 
 import SwipeableViews from 'react-swipeable-views';
 
-import YellData from './../data/yellData.js'
+import YellData from './../data/yellData.js';
 import Graph1Data from './../data/graph1Data.js';
-
+import Graph2Data from './../data/graph2Data.js';
+import Graph3Data from './../data/graph3Data.js';
+import Graph4Data from './../data/graph4Data.js';
 
 import Charts from './chart.jsx'
 
@@ -93,10 +95,10 @@ export default class TableMenu extends Component
                 <Grid.Column width={4} style={{marginLeft:-40}}>
                   <center><Header as={'h4'}>Performance on Yell.Com</Header></center>
                   <br/>
-                  <Charts graphData={Graph1Data} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/>
-                  <Charts graphData={Graph1Data} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/>
-                  <Charts graphData={Graph1Data} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/>
-                  <Charts graphData={Graph1Data} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/>
+                  <Charts graphData={Graph1Data} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']} width={300} height={130}/>
+                  <Charts graphData={Graph2Data} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']} width={300} height={130}/>
+                  <Charts graphData={Graph3Data} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']} width={300} height={130}/>
+                  <Charts graphData={Graph4Data} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']} width={300} height={130}/>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
