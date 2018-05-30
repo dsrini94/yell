@@ -6,7 +6,7 @@ const DividerLine = (props) => (
     <Grid>
       <Grid.Row>
         <Grid.Column width={16}>
-          <Divider style={{background:'#fedb00',height:'20%',marginTop:'-1%'}}/>
+          <Divider style={{background:'#fedb00',marginTop:'-1%'}}/>
         </Grid.Column>
       </Grid.Row>
     </Grid>

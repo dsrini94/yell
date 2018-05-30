@@ -30,7 +30,7 @@ export default class Registrationpage extends Component {
             </Grid.Column>
           </Grid.Row>
           <Grid.Row only='computer'>
-            <Grid.Column width={16}>
+            <Grid.Column width={16} style={{marginTop:'-15px'}}>
               <RegisterHeader />
             </Grid.Column>
           </Grid.Row>
@@ -39,7 +39,7 @@ export default class Registrationpage extends Component {
               <DividerLine />
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row only='computer'>
+          <Grid.Row only='computer' style={{marginTop:'-25px'}}>
             <Grid.Column width={16}>
               <RegisterFields />
             </Grid.Column>
@@ -49,7 +49,7 @@ export default class Registrationpage extends Component {
               <DividerBottom />
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row only='computer'>
+          <Grid.Row only='computer' style={{marginTop:'-25px'}}>
             <Grid.Column width={16}>
               <Footer />
             </Grid.Column>
@@ -59,7 +59,7 @@ export default class Registrationpage extends Component {
               <AppBarTablet />
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row only='tablet'>
+          <Grid.Row only='tablet' style={{marginTop:'-15px'}}>
             <Grid.Column width={16}>
               <RegisterHeaderTablet />
             </Grid.Column>
@@ -69,7 +69,7 @@ export default class Registrationpage extends Component {
               <DividerLine />
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row only='tablet'>
+          <Grid.Row only='tablet' style={{marginTop:'-25px'}}>
             <Grid.Column width={16}>
               <RegisterFieldsTablet />
             </Grid.Column>
@@ -79,7 +79,7 @@ export default class Registrationpage extends Component {
               <DividerBottom />
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row only='tablet'>
+          <Grid.Row only='tablet' style={{marginTop:'-25px'}}>
             <Grid.Column width={16}>
               <Footer />
             </Grid.Column>
@@ -89,7 +89,7 @@ export default class Registrationpage extends Component {
               <AppBarMobile />
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row only='mobile' style={{marginTop:'7px'}}>
+          <Grid.Row only='mobile' style={{marginTop:'-15px'}}>
             <Grid.Column width={16}>
               <RegisterHeaderMobile />
             </Grid.Column>
@@ -99,7 +99,7 @@ export default class Registrationpage extends Component {
               <DividerLine />
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row only='mobile'>
+          <Grid.Row only='mobile' style={{marginTop:'-25px'}}>
             <Grid.Column width={16}>
               <RegisterFieldsMobile />
             </Grid.Column>
@@ -109,7 +109,7 @@ export default class Registrationpage extends Component {
               <DividerBottom />
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row only='mobile'>
+          <Grid.Row only='mobile' style={{marginTop:'-25px'}}>
             <Grid.Column width={16}>
               <Footer />
             </Grid.Column>

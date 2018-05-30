@@ -7,10 +7,10 @@ const registerHeaderTablet = (props) => (
       <Grid.Row>
         <Grid.Column width={2}/>
         <Grid.Column width={2}>
-          <Image size='tiny' src='https://www.yell.com/img/yell_icon_256x256.png' />
+          <Image size='mini' src='https://www.yell.com/img/yell_icon_256x256.png' />
         </Grid.Column>
         <Grid.Column width={7}/>
-        <Grid.Column as={Link} to='/login' width={3} style={{marginTop:'2%',textAlign:'right',color:'black'}}>
+        <Grid.Column as={Link} to='/login' width={3} style={{marginTop:'1%',textAlign:'right',color:'black'}}>
           <Icon name="user circle" size="big"/>
           <span>Log In</span>
         </Grid.Column>

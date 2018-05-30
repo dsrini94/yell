@@ -1,13 +1,27 @@
 import React, {Component} from 'react';
-import {Grid,Input,Checkbox,Button,Icon,Image,Divider} from 'semantic-ui-react';
+import {Grid,Input,Checkbox,Button,Icon,Image,Divider,Form} from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 export default class LoginFieldsMobile extends Component {
   constructor(){
     super();
     this.state={
-
+      password:'',
+      passwordType:'password'
     }
+    this.handlePassword = this.handlePassword.bind(this);
+    this.hidePassword = this.hidePassword.bind(this);
+    this.showPassword = this.showPassword.bind(this);
+  }
+  hidePassword(){
+    this.setState({passwordType:'password'});
+  }
+  showPassword(){
+    this.setState({passwordType:'text'});
+  }
+  handlePassword(event){
+    let val = event.target.value;
+    this.setState({password:val});
   }
   render() {
     return (
@@ -17,97 +31,58 @@ export default class LoginFieldsMobile extends Component {
             <Grid.Column width={2} />
 
             <Grid.Column width ={12}>
-              <Grid>
-                <Grid.Row>
-                  <Grid.Column width={16}>
-                    <h1 style={{textAlign:'center'}}>Login</h1>
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16}>
-                    <h3>Email Address</h3>
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16} style={{marginTop:'-4%'}}>
-                    <Input fluid/>
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16} style={{marginTop:'-4%'}}>
-                    <h4 style={{color:'gray'}}>abc@xyz.com</h4>
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={10}>
-                    <h3>Password</h3>
-                  </Grid.Column>
-
-                  <Grid.Column width={6}>
-                    <h5 style={{textAlign:'right',textDecoration: 'underline'}}>Show</h5>
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16} style={{marginTop:'-4%'}}>
-                    <Input type='password' fluid/>
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={10}>
-                    <Checkbox label='Keep me logged in' />
-                  </Grid.Column>
-
-                  <Grid.Column width={6}>
-                    <h5 style={{textAlign:'right',textDecoration: 'underline'}}>Forgot Password?</h5>
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16}>
-                    <h5>By logging in you agree to Yell's Conditions of Use and <span style={{textDecoration:'underline',color:'blue'}}>Privacy Policy</span></h5>
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16}>
+              <Form>
+                <Form.Field>
+                    <h3 style={{textAlign:'center'}}>Login</h3>
+                </Form.Field>
+                <Form.Field>
+                    <label style={{float:'left'}}>Email Address</label>
+                </Form.Field>
+                <Form.Field>
+                    <Input fluid placeholder='abc@xyz.com'/>
+                </Form.Field>
+                <Form.Field>
+                    <label style={{float:'left'}}>Password</label>
+                    {
+                      this.state.passwordType == 'password' ?
+                      <label style={{float:'right',textDecoration:'underline'}} onClick={this.showPassword}>Show</label>
+                      :
+                      <label style={{float:'right',textDecoration:'underline'}} onClick={this.hidePassword}>Hide</label>
+                    }
+                </Form.Field>
+                <Form.Field>
+                    <Input type ={this.state.passwordType} value={this.state.password} fluid onChange={this.handlePassword}/>
+                </Form.Field>
+                <Form.Field>
+                    <Checkbox label='Keep me logged in' style={{fontSize:'13px'}} />
+                    <label style={{textAlign:'right',textDecoration: 'underline',float:'right',fontSize:'11px'}}>Forgot Password?</label>
+                </Form.Field>
+                <Form.Field>
+                    <p>By logging in you agree to Yell's Conditions of Use and <span style={{textDecoration:'underline',color:'blue'}}>Privacy Policy</span></p>
+                </Form.Field>
+                <Form.Field as={Link} to='/dashboard'>
                     <Button fluid style={{background:'#fedb00'}}>Login</Button>
-                  </Grid.Column>
+                </Form.Field>
+              </Form>
+                <Grid>
+                  <Grid.Row>
+                    <Grid.Column width={16}>
+                      <Divider horizontal>Or</Divider>
+                    </Grid.Column>
+                 </Grid.Row>
+                 <Grid.Row style={{marginTop:'-25px'}}>
+                   <Grid.Column width={8}>
+                     <Button fluid color='red' style={{fontSize:'11px'}}>
+                       <Icon name='google'  /> Google
+                     </Button>
+                   </Grid.Column>
+                   <Grid.Column width={8}>
+                     <Button fluid color='facebook' style={{fontSize:'11px'}}>
+                       <Icon name='facebook' /> Facebook
+                     </Button>
+                   </Grid.Column>
                 </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column as={Link} to='/register' width={16}>
-                    <Button basic fluid color='yellow'>Create Account</Button>
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16}>
-                    <Divider horizontal>Or</Divider>
-                 </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16}>
-                    <Button fluid color='red'>
-                      <Icon name='google'  /> Google
-                    </Button>
-                 </Grid.Column>
-               </Grid.Row>
-
-               <Grid.Row>
-                 <Grid.Column width={16}>
-                   <Button fluid color='facebook'>
-                     <Icon name='facebook' /> Facebook
-                   </Button>
-                </Grid.Column>
-                </Grid.Row>
-              </Grid>
+                </Grid>
             </Grid.Column>
 
             <Grid.Column width={2} />

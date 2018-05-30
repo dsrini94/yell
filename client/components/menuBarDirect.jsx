@@ -11,9 +11,7 @@ function MenuBar(){
           <Grid.Column width={2}>
              <Image src='./client/assets/images/businessLogo.png' size='large' style={styles.image}/>
           </Grid.Column>
-
           <Grid.Column width={9}/>
-
           <Grid.Column width={2} style={styles.loginContainer}>
             <span style={styles.loginText}>Alan's Account</span>
           </Grid.Column>

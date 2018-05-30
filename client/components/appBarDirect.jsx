@@ -1,5 +1,5 @@
 import React from 'react';
-import { Segment,Grid,Icon } from 'semantic-ui-react'
+import { Segment,Grid,Icon } from 'semantic-ui-react';
 
 function AppBarDirect(){
   return(
@@ -49,6 +49,5 @@ const styles={
     borderRadius:0
   }
 }
-
 
 export default AppBarDirect;

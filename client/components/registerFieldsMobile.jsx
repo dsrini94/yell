@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Grid,Input,Checkbox,Button,Divider,Icon,Image,Message,Radio} from 'semantic-ui-react';
+import {Grid,Input,Checkbox,Button,Divider,Icon,Image,Message,Radio,Form} from 'semantic-ui-react';
 
 export default class RegisterFieldsMobile extends Component {
   constructor(){
@@ -7,6 +7,7 @@ export default class RegisterFieldsMobile extends Component {
     this.state={
       checked:false,
       password:'',
+      passwordType:'text',
       characterFound:false,
       numberFound:false,
       upperFound:false,
@@ -14,11 +15,19 @@ export default class RegisterFieldsMobile extends Component {
     }
     this.handleCheckbox = this.handleCheckbox.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
+    this.hidePassword = this.hidePassword.bind(this);
+    this.showPassword = this.showPassword.bind(this);
   }
   handleCheckbox(){
     this.setState({checked:!this.state.checked},()=>{
       console.log(this.state.checked);
     })
+  }
+  hidePassword(){
+    this.setState({passwordType:'password'});
+  }
+  showPassword(){
+    this.setState({passwordType:'text'});
   }
   handlePassword(event){
     let val = event.target.value;
@@ -49,152 +58,106 @@ export default class RegisterFieldsMobile extends Component {
             <Grid.Column width={2} />
 
             <Grid.Column width ={12}>
-              <Grid>
-
-                <Grid.Row>
-                  <Grid.Column width={16}>
-                    <h1 style={{textAlign:'center'}}>Create Account</h1>
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16}>
-                    <h3>First Name</h3>
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16} style={{marginTop:'-5%'}}>
-                    <Input fluid />
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16}>
-                    <h3>Last Name</h3>
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16} style={{marginTop:'-5%'}}>
+              <Form>
+                <Form.Field>
+                    <h3 style={{textAlign:'center'}}>Create Account</h3>
+                </Form.Field>
+                <Form.Field>
+                    <label style={{float:'left'}} >First Name</label>
+                </Form.Field>
+                <Form.Field>
                     <Input fluid/>
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column style={{marginTop:'-5%'}}>
+                </Form.Field>
+                <Form.Field>
+                    <label style={{float:'left'}}>Last Name</label>
+                </Form.Field>
+                <Form.Field>
+                    <Input fluid/>
+                </Form.Field>
+                <Form.Field>
                     <Message >
-                        <p>
+                        <p style={{fontSize:'11px'}}>
                           <strong>Note:</strong> &nbsp; We will automatically create your display name, e.g JSmith-39. You can change this on the My Settings page after your account is created.
                         </p>
                       </Message>
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16}>
-                    <h3>Email Address</h3>
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16} style={{marginTop:'-5%'}}>
-                    <Input fluid/>
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16} style={{marginTop:'-5%'}}>
-                    <h4 style={{color:'gray'}}>abc@xyz.com</h4>
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16}>
-                    <h3>Password</h3>
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16} style={{marginTop:'-5%'}}>
-                    <Input fluid onChange={this.handlePassword}/>
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16} style={{marginTop:'-5%'}}>
-                    <Message info>
-                    {this.state.upperFound == false ?
-                    <span style={{color:'red'}}>One Uppercase</span>:
-                  <span>
-                    <span style={{color:'green'}}>One Uppercase</span>
-                    <Icon name='checkmark box' color='green' />
-                  </span>
-                   }
-                    <br/>
-                    {this.state.numberFound == false ?
-                      <span style={{color:'red'}} >One Number</span>:
-                      <span>
-                      <span style={{color:'green'}}>One Number</span>
-                    <Icon name='checkmark box' color='green' />
-                    </span>
+                </Form.Field>
+                <Form.Field>
+                    <label style={{float:'left'}}>Email Address</label>
+                </Form.Field>
+                <Form.Field>
+                    <Input fluid placeholder='abc@xyz.com'/>
+                </Form.Field>
+                <Form.Field>
+                    <label style={{float:'left'}}>Password</label>
+                    {
+                      this.state.passwordType == 'text' ?
+                      <label style={{float:'right',textDecoration:'underline'}} onClick={this.hidePassword}>Hide</label>
+                      :
+                      <label style={{float:'right',textDecoration:'underline'}} onClick={this.showPassword}>Show</label>
                     }
-                  <br/>
-                  {this.state.characterFound == false ?
-                  <span style={{color:'red'}}>One special Character</span>:
-                  <span>
-                  <span style={{color:'green'}}>One special Character</span>
-                  <Icon name='checkmark box' color='green' />
-                 </span>
-                  }
-
-                 <br/>
-                 {this.state.lengthFound == false ?
-                  <span style={{color:'red'}}>Minimum 8 characters</span>:
-                  <span>
-                  <span style={{color:'green'}}>Minimum 8 characters</span>
-                 <Icon name='checkmark box' color='green' />
-                 </span>
-                 }
-               </Message>
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16}>
-                    <Checkbox label='I want to access Yell Direct' checked={this.state.checked} onChange={this.handleCheckbox}/>
-                  </Grid.Column>
-                </Grid.Row>
-
+                </Form.Field>
+                <Form.Field>
+                    <Input type ={this.state.passwordType} value={this.state.password} fluid onChange={this.handlePassword}/>
+                </Form.Field>
+                <Form.Group>
+                  <Form.Field>
+                   {this.state.upperFound == false ?
+                      <span style={{fontSize:'12px',color:'gray'}}>One Uppercase</span>:
+                      <span>
+                        <Icon name='checkmark box' color='green' />
+                      <span style={{fontSize:'12px',color:'green'}}>One Uppercase</span>
+                     </span>
+                     }
+                  </Form.Field>
+                  <Form.Field>
+                      {this.state.characterFound == false ?
+                      <span style={{fontSize:'12px',color:'gray'}}>One special Character</span>:
+                      <span>
+                        <Icon name='checkmark box' color='green' />
+                      <span style={{fontSize:'12px',color:'green'}}>One special Character</span>
+                     </span>
+                      }
+                  </Form.Field>
+                </Form.Group>
+                <Form.Group>
+                  <Form.Field>
+                    {this.state.numberFound == false ?
+                      <span style={{fontSize:'12px',color:'gray'}} >One Number</span>:
+                      <span>
+                        <Icon name='checkmark box' color='green' />
+                      <span style={{fontSize:'12px',color:'green'}}>One Number</span>
+                      </span>
+                    }
+                </Form.Field>
+                <Form.Field>
+                   {this.state.lengthFound == false ?
+                    <span style={{fontSize:'12px',color:'gray'}}>Minimum 8 characters</span>:
+                    <span>
+                      <Icon name='checkmark box' color='green' />
+                    <span style={{fontSize:'12px',color:'green'}}>Minimum 8 characters</span>
+                   </span>
+                   }
+                </Form.Field>
+              </Form.Group>
+                <Form.Field>
+                    <Checkbox label='I want to access Yell Direct' checked={this.state.checked} onChange={this.handleCheckbox} style={{fontSize:'12px',marginTop:'10px'}}/>
+                </Form.Field>
                 {this.state.checked == true ?
                   <span style={{width:'105%'}}>
-                  <Grid.Row>
-                    <Grid.Column width={16}>
-                      <h3>Account Number</h3>
-                    </Grid.Column>
-                  </Grid.Row>
-
-                  <Grid.Row style={{marginTop:'5%'}}>
-                    <Grid.Column width={16}>
+                  <Form.Field>
+                      <label style={{float:'left'}}>Account Number</label>
+                  </Form.Field>
+                  <Form.Field >
                       <Input fluid/>
-                    </Grid.Column>
-                  </Grid.Row>
-
-                  <Grid.Row style={{marginTop:'5%'}}>
-                    <Grid.Column width={16}>
-                      <h3>Postcode</h3>
-                    </Grid.Column>
-                  </Grid.Row>
-
-                  <Grid.Row style={{marginTop:'5%'}}>
-                    <Grid.Column width={16}>
+                  </Form.Field>
+                  <Form.Field >
+                      <label style={{float:'left'}}>Postcode</label>
+                  </Form.Field>
+                  <Form.Field >
                       <Input fluid/>
-                    </Grid.Column>
-                  </Grid.Row>
-
-                  <Grid.Row style={{marginTop:'5%'}}>
-                    <Grid.Column width={16}>
-                      <Message>
+                  </Form.Field>
+                  <Form.Field>
+                      <Message style={{fontSize:'11px'}}>
                         <Message.Header>
                           How to find your account number? :
                         </Message.Header>
@@ -208,56 +171,17 @@ export default class RegisterFieldsMobile extends Component {
                           Contact us <span style={{color:'blue'}}> online </span> or <span style={{color:'blue'}}> email us. </span>
                         </p>
                       </Message>
-                    </Grid.Column>
-                  </Grid.Row>
+                  </Form.Field>
                   </span>
                : ''}
-
-                <Grid.Row>
-                  <Grid.Column width={16}>
-                    <Checkbox label='Keep me up-dated by email on how Yell can help you find products and services (Privacy Policy) Optional'/>
-                  </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16}>
+                <Form.Field>
+                    <Checkbox label='Keep me up-dated by email on how Yell can help you find products and services (Privacy Policy) Optional' style={{marginTop:'7px',fontSize:'12px'}}/>
+                </Form.Field>
+                <Form.Field>
                     <Button fluid style={{background:'#fedb00'}}>Create Account</Button>
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
+                </Form.Field>
+              </Form>
             </Grid.Column>
-            {/* <Grid.Column width={4}  >
-              <Grid.Row style={{marginTop:'34%'}}>
-                <Grid.Column>
-                  <Message >
-                      <p>
-                        <strong>Note:</strong> &nbsp; We will automatically create your display name, e.g JSmith-39. You can change this on the My Settings page after your account is created.
-                      </p>
-                    </Message>
-                </Grid.Column>
-              </Grid.Row> */}
-              {/* {this.state.checked == true ? <Grid.Row style={{marginTop:'165%'}}>
-                <Grid.Column>
-                  <Message>
-                    <Message.Header>
-                      How to find your account number? :
-                    </Message.Header>
-                    <p>
-                      In emails or posts we have sent you.
-                    </p>
-                    <Message.Header>
-                    Can't find your account number?:
-                    </Message.Header>
-                    <p>
-                      Contact us <span style={{color:'blue'}}> online </span> or <span style={{color:'blue'}}> email us. </span>
-                    </p>
-                  </Message>
-                </Grid.Column>
-              </Grid.Row>:
-              ''
-            } */}
-
-            {/* </Grid.Column> */}
             <Grid.Column width={2} />
           </Grid.Row>
         </Grid>

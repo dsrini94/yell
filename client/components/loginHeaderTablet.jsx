@@ -7,12 +7,9 @@ const LoginHeaderTablet = (props) => (
       <Grid.Row>
         <Grid.Column width={2}/>
         <Grid.Column width={2}>
-          <Image size='tiny' src='https://www.yell.com/img/yell_icon_256x256.png' />
+          <Image size='tiny' src='./client/assets/images/logo.png' />
         </Grid.Column>
-        <Grid.Column width={7}>
-          <Input style={{marginTop:'4%'}} icon='search' iconPosition='left' placeholder='Search...' />
-        </Grid.Column>
-        <Grid.Column as={Link} to='/register' style={{marginTop:'2%',textAlign:'right',color:'black'}} width={3}>
+        <Grid.Column as={Link} to='/register' style={{textAlign:'right',color:'black'}} width={10}>
           <span >Create Account</span>
         </Grid.Column>
         <Grid.Column width={2}/>

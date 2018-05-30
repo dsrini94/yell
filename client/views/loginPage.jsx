@@ -32,16 +32,16 @@ export default class Loginpage extends Component {
             </Grid.Column>
           </Grid.Row>
           <Grid.Row only='computer'>
-            <Grid.Column width={16}>
+            <Grid.Column width={16} >
               <LoginHeader />
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row only='computer'>
+          <Grid.Row only='computer' >
             <Grid.Column width={16}>
               <DividerLine />
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row only='computer'>
+          <Grid.Row only='computer' style={{marginTop:'-25px'}}>
             <Grid.Column width={16}>
               <LoginFields />
             </Grid.Column>
@@ -51,7 +51,7 @@ export default class Loginpage extends Component {
               <DividerBottom />
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row only='computer'>
+          <Grid.Row only='computer' style={{marginTop:'-25px'}}>
             <Grid.Column width={16}>
               <Footer />
             </Grid.Column>
@@ -71,7 +71,7 @@ export default class Loginpage extends Component {
               <DividerLine />
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row only='tablet'>
+          <Grid.Row only='tablet' style={{marginTop:'-25px'}}>
             <Grid.Column width={16}>
               <LoginFieldsTablet />
             </Grid.Column>
@@ -81,7 +81,7 @@ export default class Loginpage extends Component {
               <DividerBottom />
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row only='tablet'>
+          <Grid.Row only='tablet' style={{marginTop:'-35px'}}>
             <Grid.Column width={16}>
               <Footer />
             </Grid.Column>
@@ -101,7 +101,7 @@ export default class Loginpage extends Component {
               <DividerLine />
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row only='mobile'>
+          <Grid.Row only='mobile' style={{marginTop:'-25px'}}>
             <Grid.Column width={16}>
               <LoginFieldsMobile />
             </Grid.Column>
@@ -111,7 +111,7 @@ export default class Loginpage extends Component {
               <DividerBottom />
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row only='mobile'>
+          <Grid.Row only='mobile' style={{marginTop:'-25px'}}>
             <Grid.Column width={16}>
               <Footer />
             </Grid.Column>
