@@ -1,5 +1,5 @@
 import React from 'react';
-import { Segment,Grid,Image,Icon } from 'semantic-ui-react'
+import { Segment,Grid,Image,Icon,Dropdown } from 'semantic-ui-react'
 
 function MenuBar(){
   return(
@@ -11,10 +11,15 @@ function MenuBar(){
           <Grid.Column width={2}>
              <Image src='./client/assets/images/businessLogo.png' size='large' style={styles.image}/>
           </Grid.Column>
-          <Grid.Column width={9}/>
+          <Grid.Column width={8}/>
           <Grid.Column width={3} style={styles.loginContainer}>
-            <span style={styles.loginText}>Alan's Account</span>
-            <Icon name="log out" size="large" style={{marginLeft:15}}/>
+            <Dropdown text="Alans's Account" style={styles.loginText}>
+            <Dropdown.Menu>
+              <Dropdown.Item text='My profile' />
+              <Dropdown.Item text='Settings' />
+              <Dropdown.Item text='Logout' />
+            </Dropdown.Menu>
+          </Dropdown>
           </Grid.Column>
 
         </Grid.Row>

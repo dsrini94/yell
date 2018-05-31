@@ -10,6 +10,8 @@ import Graph1Data from './../data/graph1Data.js';
 import Graph2Data from './../data/graph2Data.js';
 import Graph3Data from './../data/graph3Data.js';
 import Graph4Data from './../data/graph4Data.js';
+import allInvoiceData from './../data/allInvoiceData.js';
+import pendingPayment from './../data/pendingPaymentData.js';
 import DashboardFooter from './../components/dashboardFooter.jsx';
 import SwipeableViews from 'react-swipeable-views';
 
@@ -25,7 +27,10 @@ export default class MobileDashboard extends Component
       activeIndexAccordion:99,
       selectedSideBar:'DashBoard',
       accountsIndex:0,
-      activeItem1:'All Incoices'
+      activeItem1:'All Invoices',
+      index1:0,
+      activeIndexAccordion1:99,
+      checkBox:false
     }
   }
 
@@ -60,7 +65,7 @@ renderTableData()
                    <Grid.Row style={{padding:0}}>
                      <Grid.Column width={2}>
                        <div style={{padding:3,backgroundColor:color,float:'left',height:40}}></div>
-                       <Checkbox style={{padding:5,marginTop:'17%'}} />
+                       <Checkbox style={{padding:5,marginTop:'17%'}} checked={this.state.checkBox}/>
                      </Grid.Column>
                      <Grid.Column width={5} style={{marginTop:'2%'}}>
                         {item.name}
@@ -107,7 +112,118 @@ renderTableData()
     })
   )
 }
+handleClick1(e){
+  const newIndex = this.state.activeIndexAccordion1 === e ? -1 : e
+  this.setState({ activeIndexAccordion1: newIndex })
+}
+handleAllInvoiceRender()
+{
+  return(
+    allInvoiceData.map((item,key)=>{
+      var color =  item.action == 'Make Payment' ? 'red' : 'green';
+      var textColor =  item.action == 'Make Payment' ? 'red' : '';
+      return(
+        <Grid.Row key={key}>
+          <Grid.Column width={16}>
+            <Accordion>
+               <Accordion.Title active={this.state.activeIndexAccordion1 === key} index={key} onClick={this.handleClick1.bind(this,key)}>
+                 <Grid>
+                   <Grid.Row style={{padding:0}}>
+                     <Grid.Column width={2}>
+                       <div style={{padding:3,backgroundColor:color,float:'left',height:40}}></div>
+                     </Grid.Column>
+                     <Grid.Column width={4} style={{marginTop:'2%'}}>
+                       {item.number}
+                     </Grid.Column>
+                     <Grid.Column width={7} style={{marginTop:'2%'}}>
+                       <span style={{color:textColor,fontWeight:'bold',padding:16}}>{item.action}</span>
+                     </Grid.Column>
+                      <Grid.Column width={2} style={{marginTop:'2%'}}>
+                        <Icon name='dropdown' style={{float:'right'}}/>
+                      </Grid.Column>
+                      <Grid.Column width={1} />
+                   </Grid.Row>
+                 </Grid>
+             </Accordion.Title>
+               <Accordion.Content active={this.state.activeIndexAccordion1 === key}>
+                 <Grid>
+                   <Grid.Row>
+                     <Grid.Column width={3} />
+                     <Grid.Column width={5}>
+                       <Header as='h5'>Invoice Date</Header>
+                         {item.date}
+                     </Grid.Column>
+                     <Grid.Column width={5}>
+                        <Header as='h5'>Balance</Header>
+                        {item.bal}
+                     </Grid.Column>
+                      <Grid.Column width={3} />
+                   </Grid.Row>
+                 </Grid>
+               </Accordion.Content>
+             </Accordion>
+          </Grid.Column>
+         </Grid.Row>
+ );
 
+    })
+  )
+}
+
+handlePendingPaymentRender()
+{
+  return(
+    pendingPayment.map((item,key)=>{
+      var color =  item.action == 'Make Payment' ? 'red' : 'green';
+      var textColor =  item.action == 'Make Payment' ? 'red' : '';
+      return(
+        <Grid.Row key={key}>
+          <Grid.Column width={16}>
+            <Accordion>
+               <Accordion.Title active={this.state.activeIndexAccordion1 === key} index={key} onClick={this.handleClick1.bind(this,key)}>
+                 <Grid>
+                   <Grid.Row style={{padding:0}}>
+                     <Grid.Column width={1}/>
+                     <Grid.Column width={1}>
+                       <div style={{padding:3,backgroundColor:color,float:'left',height:40}}></div>
+                     </Grid.Column>
+                     <Grid.Column width={4} style={{marginTop:'2%'}}>
+                       {item.number}
+                     </Grid.Column>
+                     <Grid.Column width={7} style={{marginTop:'2%'}}>
+                       <span style={{color:textColor,fontWeight:'bold',padding:20}}>{item.action}</span>
+                     </Grid.Column>
+                      <Grid.Column width={2} style={{marginTop:'2%'}}>
+                        <Icon name='dropdown' style={{float:'right'}}/>
+                      </Grid.Column>
+                      <Grid.Column width={1} />
+                   </Grid.Row>
+                 </Grid>
+             </Accordion.Title>
+               <Accordion.Content active={this.state.activeIndexAccordion1 === key}>
+                 <Grid>
+                   <Grid.Row>
+                     <Grid.Column width={3} />
+                     <Grid.Column width={5}>
+                       <Header as='h5'>Invoice Date</Header>
+                         {item.date}
+                     </Grid.Column>
+                     <Grid.Column width={5}>
+                        <Header as='h5'>Balance</Header>
+                        {item.bal}
+                     </Grid.Column>
+                      <Grid.Column width={3} />
+                   </Grid.Row>
+                 </Grid>
+               </Accordion.Content>
+             </Accordion>
+          </Grid.Column>
+         </Grid.Row>
+ );
+
+    })
+  )
+}
   render()
   {
     const { activeItem , activeIndexAccordion, activeItem1 } = this.state;
@@ -223,17 +339,22 @@ renderTableData()
                         </SwipeableViews>
                         <Grid>
                           <Grid.Row style={{backgroundColor:'#D7DADC',marginTop:'5%'}}>
-                            <Grid.Column width={2} />
+                            {/* <Grid.Column width={1} /> */}
+                            <Grid.Column width={2} >
+                              <Checkbox style={{padding:12,marginTop:'-15%'}} onChange={()=>this.setState({checkBox:!this.state.checkBox})} />
+                           </Grid.Column>
                             <Grid.Column width={5}>
-                              <Header as={'h5'}>Advert Name</Header>
+                              <Header as={'h5'} style={{padding:8}}>Advert Name</Header>
                             </Grid.Column>
                             <Grid.Column width={4}>
                               <Header as={'h5'}>Order Number/Line</Header>
                             </Grid.Column>
-                            <Grid.Column width={3}>
-                              <Header as={'h5'}>Status</Header>
+                            <Grid.Column width={3} >
+                              <Header as={'h5'} style={{padding:8}}>Status</Header>
                             </Grid.Column>
-                            <Grid.Column width={2} />
+                            <Grid.Column width={2} style={{marginTop:'1%'}} >
+                              <Icon name='edit' size='large' disabled = {!this.state.checkBox} />
+                            </Grid.Column>
                           </Grid.Row>
                              {this.renderTableData()}
                         </Grid>
@@ -359,11 +480,35 @@ renderTableData()
                     <Grid.Column width={16}>
                       <SwipeableViews index={this.state.accountsIndex}>
                         <div style={{overflow:'hidden'}}>
-                            slide 1
+                          <Grid>
+                            <Grid.Row style={{backgroundColor:'#D7DADC',marginTop:'5%'}}>
+                              <Grid.Column width={2} />
+                              <Grid.Column width={5}>
+                                <Header as={'h5'}>Invoice Number</Header>
+                              </Grid.Column>
+                              <Grid.Column width={6}>
+                                <Header as={'h5'}>Action</Header>
+                              </Grid.Column>
+                              <Grid.Column width={3} />
+                            </Grid.Row>
+                            {this.handleAllInvoiceRender()}
+                          </Grid>
                         </div>
 
                         <div style={{overflow:'hidden'}}>
-                          slide 2
+                          <Grid>
+                            <Grid.Row style={{backgroundColor:'#D7DADC',marginTop:'5%'}}>
+                              <Grid.Column width={2} />
+                              <Grid.Column width={6}>
+                                <Header as={'h5'}>Invoice Number</Header>
+                              </Grid.Column>
+                              <Grid.Column width={6}>
+                                <Header as={'h5'}>Action</Header>
+                              </Grid.Column>
+                              <Grid.Column width={2} />
+                            </Grid.Row>
+                          {this.handlePendingPaymentRender()}
+                          </Grid>
                         </div>
 
                       </SwipeableViews>
