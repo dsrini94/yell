@@ -2,6 +2,7 @@ import React from 'react';
 import { Segment,Grid,Image,Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
+
 function MenuBarMobile(){
   return(
     <Segment style={styles.container}>

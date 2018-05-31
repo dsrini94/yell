@@ -23,7 +23,7 @@ export default class DashBoardComputer extends React.Component
     super();
     this.state={
       activeItem:'Dashboard',
-      activeItem1:'All Incoices',
+      activeItem1:'All Invoices',
       index:0
     }
   }
@@ -219,7 +219,7 @@ handlePendingPaymentRender()
                     <div>
                       <Menu  pointing secondary>
                         <Menu.Item name='All Invoices' active={activeItem ==='All Invoices' } onClick={this.handleIndex.bind(this,0)}>
-                            All Incoices
+                            All Invoices
                             <Label color='orange'>3</Label>
                         </Menu.Item>
                         <Menu.Item name='Pending Payments' active={activeItem === 'Pending Payments'}  onClick={this.handleIndex.bind(this,1)}>
@@ -237,7 +237,7 @@ handlePendingPaymentRender()
                                      <Table.Header>
                                        <Table.Row>
                                          <Table.HeaderCell>Invoice Date</Table.HeaderCell>
-                                         <Table.HeaderCell>Invoice Number/Line</Table.HeaderCell>
+                                         <Table.HeaderCell>Invoice Number</Table.HeaderCell>
                                          <Table.HeaderCell>Balance</Table.HeaderCell>
                                          <Table.HeaderCell>Action</Table.HeaderCell>
                                        </Table.Row>
