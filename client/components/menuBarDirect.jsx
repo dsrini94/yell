@@ -12,8 +12,9 @@ function MenuBar(){
              <Image src='./client/assets/images/businessLogo.png' size='large' style={styles.image}/>
           </Grid.Column>
           <Grid.Column width={9}/>
-          <Grid.Column width={2} style={styles.loginContainer}>
+          <Grid.Column width={3} style={styles.loginContainer}>
             <span style={styles.loginText}>Alan's Account</span>
+            <Icon name="log out" size="large" style={{marginLeft:15}}/>
           </Grid.Column>
 
         </Grid.Row>

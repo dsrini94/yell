@@ -13,10 +13,11 @@ function MenuBarDirectMobile(){
             <Image src={'./client/assets/images/businessLogo.png'} size="large"/>
           </Grid.Column>
 
-          <Grid.Column width={5} />
+          <Grid.Column width={4} />
 
-          <Grid.Column width={5} style={styles.loginContainer}>
+          <Grid.Column width={6} style={styles.loginContainer}>
             <span style={styles.loginText}>Alan's Account</span>
+            <Icon name="log out" size="large" style={{marginLeft:10}}/>
           </Grid.Column>
 
         </Grid.Row>

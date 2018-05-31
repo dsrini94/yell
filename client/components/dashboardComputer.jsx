@@ -56,7 +56,7 @@ handleAllInvoiceRender()
            </Table.Cell>
            <Table.Cell>{item.number}</Table.Cell>
            <Table.Cell>{item.bal}</Table.Cell>
-           <Table.Cell>{item.action}</Table.Cell>
+           <Table.Cell><span style={{color:color}}>{item.action}</span></Table.Cell>
          </Table.Row>
  );
 
@@ -78,7 +78,7 @@ handlePendingPaymentRender()
            </Table.Cell>
            <Table.Cell>{item.number}</Table.Cell>
            <Table.Cell>{item.bal}</Table.Cell>
-           <Table.Cell>{item.action}</Table.Cell>
+           <Table.Cell><span style={{color:color}}>{item.action}</span></Table.Cell>
          </Table.Row>
  );
 
@@ -219,7 +219,7 @@ handlePendingPaymentRender()
                     <div>
                       <Menu  pointing secondary>
                         <Menu.Item name='All Invoices' active={activeItem ==='All Invoices' } onClick={this.handleIndex.bind(this,0)}>
-                            All Incoices
+                            All Invoices
                             <Label color='orange'>3</Label>
                         </Menu.Item>
                         <Menu.Item name='Pending Payments' active={activeItem === 'Pending Payments'}  onClick={this.handleIndex.bind(this,1)}>
