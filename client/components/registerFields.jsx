@@ -68,8 +68,8 @@ export default class RegisterFields extends Component {
       <div>
         <Grid>
           <Grid.Row>
-            <Grid.Column width={3} />
-            <Grid.Column width ={10}>
+            <Grid.Column width={5} />
+            <Grid.Column width ={5}>
               <Form>
                 <Form.Field>
                     <h3 style={{textAlign:'center'}}>Create Account</h3>

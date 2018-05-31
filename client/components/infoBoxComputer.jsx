@@ -26,10 +26,10 @@ export default class InfoBox extends Component
       number:{
         fontWeight:'bold',
         color:'white',
-        fontSize:40
+        fontSize:55
       },
       textContainer:{
-        padding:25
+        paddingTop:30
       },
       text:{
         fontSize:18
@@ -43,16 +43,17 @@ export default class InfoBox extends Component
       <Segment style={styles.container}>
         <Grid>
           <Grid.Row columns={2}>
-            <Grid.Column>
-              <div style={styles.numberContainer}>
+            <Grid.Column style={styles.numberContainer}>
+              <div >
                 <center><span style={styles.number}>{this.props.number}</span></center>
               </div>
             </Grid.Column>
 
             <Grid.Column>
               <div style={styles.textContainer}>
-                <center><span style={styles.text}>{this.props.text}</span></center>
-                <center><span style={styles.tagLine}>{this.props.tagLine}</span></center>
+                <span style={styles.text}>{this.props.text}</span>
+                <br/>
+                <span style={styles.tagLine}>{this.props.tagLine}</span>
               </div>
             </Grid.Column>
           </Grid.Row>

@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 
-import { Menu, Segment, Table, Checkbox, Grid, Header, Label } from 'semantic-ui-react';
+import { Menu, Segment, Table, Checkbox, Grid, Header, Label, Button } from 'semantic-ui-react';
 
 import SwipeableViews from 'react-swipeable-views';
 
@@ -17,7 +17,8 @@ export default class TableMenu extends Component
     super();
     this.state={
       activeItem:'Yell.com',
-      index:0
+      index:0,
+      checkBox:false
     }
   }
 
@@ -33,9 +34,9 @@ export default class TableMenu extends Component
        return(
          <Table.Row key={key}>
             <Table.Cell collapsing style={{padding:0}}>
-              <div style={{padding:3,backgroundColor:color,float:'left',height:32}}>
+              <div style={{padding:3,backgroundColor:color,float:'left',height:53}}>
               </div>
-              <Checkbox style={{float:'left',padding:8}} />
+              <Checkbox style={{float:'left',padding:8}} checked={this.state.checkBox}/>
             </Table.Cell>
             <Table.Cell>{item.name}</Table.Cell>
             <Table.Cell>{item.number}</Table.Cell>
@@ -74,17 +75,23 @@ export default class TableMenu extends Component
             Freelistings
             <Label color='orange'>5</Label>
           </Menu.Item>
+
+          <Menu.Item >
+            <Button disabled = {!this.state.checkBox}>Multi Edit</Button>
+          </Menu.Item>
         </Menu>
+
+
 
         <SwipeableViews index={this.state.index}>
           <div style={{overflow:'hidden'}}>
             <Grid>
               <Grid.Row>
                 <Grid.Column width={12}>
-                    <Table celled compact definition>
+                    <Table celled >
                        <Table.Header>
                          <Table.Row>
-                           <Table.HeaderCell> <Checkbox /></Table.HeaderCell>
+                           <Table.HeaderCell> <Checkbox onChange={()=>this.setState({checkBox:!this.state.checkBox})}/></Table.HeaderCell>
                            <Table.HeaderCell>Advert Name</Table.HeaderCell>
                            <Table.HeaderCell>Order Number/Line</Table.HeaderCell>
                            <Table.HeaderCell>Classification</Table.HeaderCell>

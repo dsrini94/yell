@@ -112,14 +112,10 @@ handlePendingPaymentRender()
 
                 <Grid.Column width={3}>
                   <Menu pointing secondary vertical>
-                    <Menu.Item name='Dashboard' active={activeItem1 === 'Dashboard'} onClick={this.handleItemClick.bind(this)} icon={'dashboard'} >
-                    </Menu.Item>
-                    <Menu.Item name='Your Analytics' active={activeItem1 === 'Your Analytics'} onClick={this.handleItemClick.bind(this)} icon={'line chart'} >
-                    </Menu.Item>
-                    <Menu.Item name='Accounts and Billings' active={activeItem1 === 'Accounts and Billings'} onClick={this.handleItemClick.bind(this)} icon={'newspaper'}>
-                    </Menu.Item>
-                    <Menu.Item name='Business Profile' active={activeItem1 === 'Business Profile'} onClick={this.handleItemClick.bind(this)} icon={'user outline'}>
-                    </Menu.Item>
+                    <Menu.Item name='Dashboard' active={activeItem === 'Dashboard'} onClick={this.handleItemClick.bind(this)} icon={'dashboard'} />
+                    <Menu.Item name='Your Analytics' active={activeItem === 'Your Analytics'} onClick={this.handleItemClick.bind(this)} icon={'line chart'} />
+                    <Menu.Item name='Accounts and Billings' active={activeItem === 'Accounts and Billings'} onClick={this.handleItemClick.bind(this)} icon={'newspaper'}/>
+                    <Menu.Item name='Business Profile' active={activeItem === 'Business Profile'} onClick={this.handleItemClick.bind(this)} icon={'user outline'}/>
                   </Menu>
                 </Grid.Column>
 

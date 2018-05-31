@@ -29,7 +29,7 @@ export default class LoginFields extends Component {
         <Grid>
           <Grid.Row>
             <Grid.Column width={5} />
-            <Grid.Column width ={6}>
+            <Grid.Column width ={5}>
               <Form>
                 <Form.Field>
                     <h3 style={{textAlign:'center'}}>Login</h3>
