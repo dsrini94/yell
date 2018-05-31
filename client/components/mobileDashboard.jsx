@@ -126,7 +126,7 @@ renderTableData()
                 <Icon name='line chart' />
                 Your Analytics
               </Menu.Item>
-              <Menu.Item name='camera' onClick={()=>this.setState({selectedSideBar:'Accounts and Billings',visible:!this.state.visible})}>
+              <Menu.Item name='camera' onClick={()=>this.setState({selectedSideBar:'Accounts and Billings',visible:!this.state.visible,accountsIndex:1})}>
                 <Icon name='newspaper' />
                 Accounts and Billings
               </Menu.Item>
@@ -254,7 +254,7 @@ renderTableData()
 
                 <Grid.Row>
                   <Grid.Column width={16}>
-                    {/* {this.pagination()} */}
+                    <Pagination defaultActivePage={5} totalPages={2} />
                   </Grid.Column>
                 </Grid.Row>
 
@@ -346,11 +346,11 @@ renderTableData()
                     <Menu  pointing secondary>
                       <Menu.Item name='All Invoices' active={activeItem1 ==='All Invoices' } onClick={this.handleIndex.bind(this,0)}>
                           All Incoices
-                          <Label color='orange'>3</Label>
+                          <Label color='orange'>10</Label>
                       </Menu.Item>
                       <Menu.Item name='Pending Payments' active={activeItem1 === 'Pending Payments'}  onClick={this.handleIndex.bind(this,1)}>
                         Pending Payments
-                        <Label color='orange'>1</Label>
+                        <Label color='orange'>2</Label>
                       </Menu.Item>
                     </Menu>
                   </Grid.Row>

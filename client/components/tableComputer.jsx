@@ -61,7 +61,7 @@ export default class TableMenu extends Component
         <Menu  pointing secondary>
           <Menu.Item name='Yell.com' active={activeItem ==='Yell.com' } onClick={this.handleItemClick.bind(this,0)}>
               Yell.com
-              <Label color='orange'>3</Label>
+              <Label color='orange'>10</Label>
           </Menu.Item>
           <Menu.Item name='Connect' active={activeItem === 'Connect'} onClick={this.handleItemClick.bind(this,1)} >
             Connect

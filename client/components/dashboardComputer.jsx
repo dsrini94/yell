@@ -1,7 +1,7 @@
 import React,{ Component } from 'react';
 
 
-import { Grid, Menu, Segment, Icon, Header, Form, Input, Button, Table, Label } from 'semantic-ui-react';
+import { Grid, Menu, Segment, Icon, Header, Form, Input, Button, Table, Label, Pagination } from 'semantic-ui-react';
 import SwipeableViews from 'react-swipeable-views';
 
 
@@ -30,7 +30,7 @@ export default class DashBoardComputer extends React.Component
 
   handleItemClick(e, { name })
   {
-    this.setState({ activeItem: name })
+    this.setState({ activeItem: name,index:1 })
   }
 
   handleIndex(e, { name }) {
@@ -111,7 +111,7 @@ handlePendingPaymentRender()
               <Grid.Row >
 
                 <Grid.Column width={3}>
-                  <Menu pointing secondary vertical>
+                  <Menu pointing secondary vertical color={"orange"}>
                     <Menu.Item name='Dashboard' active={activeItem === 'Dashboard'} onClick={this.handleItemClick.bind(this)} icon={'dashboard'} />
                     <Menu.Item name='Your Analytics' active={activeItem === 'Your Analytics'} onClick={this.handleItemClick.bind(this)} icon={'line chart'} />
                     <Menu.Item name='Accounts and Billings' active={activeItem === 'Accounts and Billings'} onClick={this.handleItemClick.bind(this)} icon={'newspaper'}/>
@@ -147,6 +147,7 @@ handlePendingPaymentRender()
                     <Grid.Row>
                       <Grid.Column width={16}>
                         <TableMenu />
+                        <Pagination defaultActivePage={5} totalPages={2} style={{marginTop:-50}}/>
                       </Grid.Column>
 
                     </Grid.Row>
@@ -179,7 +180,7 @@ handlePendingPaymentRender()
           <Grid.Row >
 
             <Grid.Column width={3}>
-              <Menu pointing secondary vertical>
+              <Menu pointing secondary vertical color={"orange"}>
                 <Menu.Item name='Dashboard' active={activeItem === 'Dashboard'} onClick={this.handleItemClick.bind(this)} icon={'dashboard'} />
                 <Menu.Item name='Your Analytics' active={activeItem === 'Your Analytics'} onClick={this.handleItemClick.bind(this)} icon={'line chart'} />
                 <Menu.Item name='Accounts and Billings' active={activeItem === 'Accounts and Billings'} onClick={this.handleItemClick.bind(this)} icon={'newspaper'}/>
@@ -220,11 +221,11 @@ handlePendingPaymentRender()
                       <Menu  pointing secondary>
                         <Menu.Item name='All Invoices' active={activeItem ==='All Invoices' } onClick={this.handleIndex.bind(this,0)}>
                             All Invoices
-                            <Label color='orange'>3</Label>
+                            <Label color='orange'>10</Label>
                         </Menu.Item>
                         <Menu.Item name='Pending Payments' active={activeItem === 'Pending Payments'}  onClick={this.handleIndex.bind(this,1)}>
                           Pending Payments
-                          <Label color='orange'>1</Label>
+                          <Label color='orange'>2</Label>
                         </Menu.Item>
                       </Menu>
 
@@ -311,7 +312,7 @@ handlePendingPaymentRender()
           <Grid.Row >
 
             <Grid.Column width={3}>
-              <Menu pointing secondary vertical>
+              <Menu pointing secondary vertical color={"orange"}>
                 <Menu.Item name='Dashboard' active={activeItem === 'Dashboard'} onClick={this.handleItemClick.bind(this)} icon={'dashboard'} />
                 <Menu.Item name='Your Analytics' active={activeItem === 'Your Analytics'} onClick={this.handleItemClick.bind(this)} icon={'line chart'} />
                 <Menu.Item name='Accounts and Billings' active={activeItem === 'Accounts and Billings'} onClick={this.handleItemClick.bind(this)} icon={'newspaper'}/>
