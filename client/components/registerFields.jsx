@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Grid,Input,Checkbox,Button,Divider,Icon,Image,Message,Radio,Form} from 'semantic-ui-react';
+import { Link, BrowserRouter } from 'react-router-dom';
 
 export default class RegisterFields extends Component {
   constructor(){
@@ -13,7 +14,8 @@ export default class RegisterFields extends Component {
       upperFound:false,
       lengthFound:false,
       accountnumber:1122334567,
-      postcode:5689
+      postcode:5689,
+      message:''
     }
     this.handleCheckbox = this.handleCheckbox.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
@@ -21,7 +23,7 @@ export default class RegisterFields extends Component {
     this.showPassword = this.showPassword.bind(this);
   }
   handleCheckbox(){
-    this.setState({checked:!this.state.checked})
+    this.setState({checked:!this.state.checked});
   }
   hidePassword(){
     this.setState({passwordType:'password'});
@@ -62,8 +64,17 @@ export default class RegisterFields extends Component {
     })
     // var format = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
   }
+  createAccount(){
+    if(this.state.checked == true){
+      console.log('here');
+      this.setState({message:'You have successfully created a account in YellDirect.com'});
+    }else{
+      this.setState({message:'You have successfully created a account in Yell.com'});
+    }
+  //  this.props.history.push({pathname:'/success', state:{message:this.state.message}});
+  }
   render() {
-    console.log("kjhgf",this.state.passwordType);
+  //  console.log("message",this.state.message);
     return (
       <div>
         <Grid>
@@ -74,6 +85,41 @@ export default class RegisterFields extends Component {
                 <Form.Field>
                     <h3 style={{textAlign:'center'}}>Create Account</h3>
                 </Form.Field>
+                <Form.Field>
+                    <Checkbox label='I want to access Yell Direct' checked={this.state.checked} onChange={this.handleCheckbox} style={{fontSize:'12px'}}/>
+                </Form.Field>
+                {this.state.checked == true ?
+                  <span style={{width:'105%'}}>
+                  <Form.Field>
+                      <label style={{float:'left'}}>Account Number</label>
+                  </Form.Field>
+                  <Form.Field >
+                      <Input fluid/>
+                  </Form.Field>
+                  <Form.Field >
+                      <label style={{float:'left'}}>Postcode</label>
+                  </Form.Field>
+                  <Form.Field >
+                      <Input fluid/>
+                  </Form.Field>
+                  <Form.Field>
+                      <Message style={{fontSize:'11px'}}>
+                        <Message.Header>
+                          How to find your account number? :
+                        </Message.Header>
+                        <p>
+                          In emails or posts we have sent you.
+                        </p>
+                        <Message.Header>
+                        Can't find your account number?:
+                        </Message.Header>
+                        <p>
+                          Contact us <span style={{color:'blue'}}> online </span> or <span style={{color:'blue'}}> email us. </span>
+                        </p>
+                      </Message>
+                  </Form.Field>
+                  </span>
+               : ''}
                 <Form.Field>
                     <label style={{float:'left'}} >First Name</label>
                 </Form.Field>
@@ -150,45 +196,10 @@ export default class RegisterFields extends Component {
                 </Form.Field>
               </Form.Group>
                 <Form.Field>
-                    <Checkbox label='I want to access Yell Direct' checked={this.state.checked} onChange={this.handleCheckbox} style={{fontSize:'12px'}}/>
-                </Form.Field>
-                {this.state.checked == true ?
-                  <span style={{width:'105%'}}>
-                  <Form.Field>
-                      <label style={{float:'left'}}>Account Number</label>
-                  </Form.Field>
-                  <Form.Field >
-                      <Input fluid/>
-                  </Form.Field>
-                  <Form.Field >
-                      <label style={{float:'left'}}>Postcode</label>
-                  </Form.Field>
-                  <Form.Field >
-                      <Input fluid/>
-                  </Form.Field>
-                  <Form.Field>
-                      <Message style={{fontSize:'11px'}}>
-                        <Message.Header>
-                          How to find your account number? :
-                        </Message.Header>
-                        <p>
-                          In emails or posts we have sent you.
-                        </p>
-                        <Message.Header>
-                        Can't find your account number?:
-                        </Message.Header>
-                        <p>
-                          Contact us <span style={{color:'blue'}}> online </span> or <span style={{color:'blue'}}> email us. </span>
-                        </p>
-                      </Message>
-                  </Form.Field>
-                  </span>
-               : ''}
-                <Form.Field>
                     <Checkbox label='Keep me up-dated by email on how Yell can help you find products and services (Privacy Policy) Optional' style={{marginTop:'7px',fontSize:'12px'}}/>
                 </Form.Field>
                 <Form.Field>
-                    <Button fluid style={{background:'#fedb00'}}>Create Account</Button>
+                    <Button fluid style={{background:'#fedb00'}} onClick={this.createAccount.bind(this)}>Create Account</Button>
                 </Form.Field>
               </Form>
             </Grid.Column>
