@@ -22,7 +22,7 @@ export default class MobileDashboard extends Component
     super();
     this.state={
       visible:false,
-      activeItem:'Yell.com (13)',
+      activeItem:'Yell.com',
       index:0,
       activeIndexAccordion:99,
       selectedSideBar:'DashBoard',
@@ -242,7 +242,7 @@ handlePendingPaymentRender()
                 <Icon name='line chart' />
                 Your Analytics
               </Menu.Item>
-              <Menu.Item name='camera' onClick={()=>this.setState({selectedSideBar:'Accounts and Billings',visible:!this.state.visible})}>
+              <Menu.Item name='camera' onClick={()=>this.setState({selectedSideBar:'Accounts and Billings',visible:!this.state.visible,accountsIndex:1})}>
                 <Icon name='newspaper' />
                 Accounts and Billings
               </Menu.Item>
@@ -302,11 +302,23 @@ handlePendingPaymentRender()
                 <Grid.Row>
                   <Grid.Column width={16}>
                     <div>
-                    <Menu pointing secondary style={{fontSize:'12px'}}>
-                      <Menu.Item name='Yell.com (13)' active={activeItem ==='Yell.com (13)' } onClick={this.handleItemClick.bind(this,0)} />
-                      <Menu.Item name='connect (1)' active={activeItem === 'connect (1)'} onClick={this.handleItemClick.bind(this,1)} />
-                      <Menu.Item name='Reputation (2)' active={activeItem === 'Reputation (2)'} onClick={this.handleItemClick.bind(this,2)} />
-                      <Menu.Item name='Freelistings (5)' active={activeItem === 'Freelistings (5)'} onClick={this.handleItemClick.bind(this,3)} />
+                    <Menu secondary >
+                      <Menu.Item name='Yell.com' active={activeItem ==='Yell.com' } onClick={this.handleItemClick.bind(this,0)} >
+                        Yell.com
+                        <Label color='orange'>10</Label>
+                      </Menu.Item>
+                      <Menu.Item name='Connect (1)' active={activeItem === 'Connect (1)'} onClick={this.handleItemClick.bind(this,1)}>
+                        Connect
+                        <Label color='orange'>1</Label>
+                      </Menu.Item>
+                      <Menu.Item name='Reputation (2)' active={activeItem === 'Reputation (2)'} onClick={this.handleItemClick.bind(this,2)}>
+                        Reputation
+                        <Label color='orange'>2</Label>
+                      </Menu.Item>
+                      <Menu.Item name='Freelistings (5)' active={activeItem === 'Freelistings (5)'} onClick={this.handleItemClick.bind(this,3)}>
+                        Freelistings
+                        <Label color='orange'>5</Label>
+                      </Menu.Item>
                     </Menu>
                     <center><Header as={'h4'}>Performance on Yell.Com</Header></center>
                     <SwipeableViews index={this.state.index} disabled={true}>
@@ -363,7 +375,7 @@ handlePendingPaymentRender()
 
                 <Grid.Row>
                   <Grid.Column width={16}>
-                    {/* {this.pagination()} */}
+                    <Pagination defaultActivePage={5} totalPages={2} />
                   </Grid.Column>
                 </Grid.Row>
 
@@ -453,13 +465,13 @@ handlePendingPaymentRender()
 
                   <Grid.Row>
                     <Menu  pointing secondary>
-                      <Menu.Item name='All Invoices' active={activeItem ==='All Invoices' } onClick={this.handleIndex.bind(this,0)}>
-                          All Invoices
-                          <Label color='orange'>3</Label>
+                      <Menu.Item name='All Invoices' active={activeItem1 ==='All Invoices' } onClick={this.handleIndex.bind(this,0)}>
+                          All Incoices
+                          <Label color='orange'>10</Label>
                       </Menu.Item>
-                      <Menu.Item name='Pending Payments' active={activeItem === 'Pending Payments'}  onClick={this.handleIndex.bind(this,1)}>
+                      <Menu.Item name='Pending Payments' active={activeItem1 === 'Pending Payments'}  onClick={this.handleIndex.bind(this,1)}>
                         Pending Payments
-                        <Label color='orange'>1</Label>
+                        <Label color='orange'>2</Label>
                       </Menu.Item>
                     </Menu>
                   </Grid.Row>

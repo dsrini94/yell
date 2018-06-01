@@ -5,7 +5,7 @@ function HeroUnit(){
   return(
     <div style={styles.container}>
 
-      <Image src={'./client/assets/images/hero1.png'} style={styles.image}/>
+      <Image src={'./client/assets/images/hero2.png'} style={styles.image}/>
 
       <div style={styles.textContainer}>
         <span style={styles.text}>Yell.com</span>
@@ -29,7 +29,7 @@ const styles={
   },
   image:{
     width:'100%',
-    height:'700px'
+    height:'500px'
   },
   fieldContainer:{
     position: 'absolute',
