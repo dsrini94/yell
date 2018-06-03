@@ -18,8 +18,8 @@ export default class Registrationpage extends Component {
     }
   }
   render() {
-    console.log('this.props.match.params.value',this.props.match.params.value);
-    
+    console.log('this.props.match.params.value',this.props);
+
     return (
       <div>
         <Grid>

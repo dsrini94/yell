@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 
-import { Menu, Segment, Table, Checkbox, Grid, Header, Label, Button } from 'semantic-ui-react';
+import { Menu, Segment, Table, Checkbox, Grid, Header, Label, Button, Pagination } from 'semantic-ui-react';
 
 import SwipeableViews from 'react-swipeable-views';
 
@@ -77,7 +77,7 @@ export default class TableMenu extends Component
           </Menu.Item>
 
           <Menu.Item >
-            <Button disabled = {!this.state.checkBox}>Multi Edit</Button>
+            <Button color='orange' disabled = {!this.state.checkBox}>Multi Edit</Button>
           </Menu.Item>
         </Menu>
 
@@ -107,6 +107,8 @@ export default class TableMenu extends Component
                        </Table.Body>
 
                      </Table>
+                    <center> <Pagination defaultActivePage={5} totalPages={2} style={{marginTop:10}}/> </center>
+
                 </Grid.Column>
 
                 <Grid.Column width={4} style={{marginLeft:-40}}>
@@ -131,7 +133,6 @@ export default class TableMenu extends Component
             slide n°4
           </div>
         </SwipeableViews>
-
       </div>
     );
   }
