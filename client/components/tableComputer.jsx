@@ -270,8 +270,6 @@ export default class TableMenu extends Component
                     </Grid>
                   </div>
 
-                  <div style={{overflow:'hidden'}}>
-                  </div>
                 </SwipeableViews>
               </Grid.Row>
 
@@ -320,20 +318,35 @@ export default class TableMenu extends Component
               <Grid.Row>
                 <SwipeableViews index={this.state.graphIndex}>
                   <div style={{overflow:'hidden'}}>
-                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/></center>
+
+                    <Grid>
+                      <Grid.Row columns={2}>
+                        <Grid.Column>
+                          <Charts graphData={Graph1Data} width={400} height={250} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/>
+                        </Grid.Column>
+
+                        <Grid.Column>
+                          <Charts graphData={Graph1Data} width={400} height={250} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/>
+                        </Grid.Column>
+                      </Grid.Row>
+                    </Grid>
+
                   </div>
 
                   <div style={{overflow:'hidden'}}>
-                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/></center>
+                    <Grid>
+                      <Grid.Row columns={2}>
+                        <Grid.Column>
+                          <center><Charts graphData={Graph1Data} width={400} height={250} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/></center>
+                        </Grid.Column>
+
+                        <Grid.Column>
+                          <center><Charts graphData={Graph1Data} width={400} height={250} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
+                        </Grid.Column>
+                      </Grid.Row>
+                    </Grid>
                   </div>
 
-                  <div style={{overflow:'hidden'}}>
-                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
-                  </div>
-
-                  <div style={{overflow:'hidden'}}>
-                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/></center>
-                  </div>
                 </SwipeableViews>
               </Grid.Row>
 
@@ -378,20 +391,35 @@ export default class TableMenu extends Component
               <Grid.Row>
                 <SwipeableViews index={this.state.graphIndex}>
                   <div style={{overflow:'hidden'}}>
-                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/></center>
+
+                    <Grid>
+                      <Grid.Row columns={2}>
+                        <Grid.Column>
+                          <Charts graphData={Graph1Data} width={400} height={250} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/>
+                        </Grid.Column>
+
+                        <Grid.Column>
+                          <Charts graphData={Graph1Data} width={400} height={250} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/>
+                        </Grid.Column>
+                      </Grid.Row>
+                    </Grid>
+
                   </div>
 
                   <div style={{overflow:'hidden'}}>
-                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/></center>
+                    <Grid>
+                      <Grid.Row columns={2}>
+                        <Grid.Column>
+                          <center><Charts graphData={Graph1Data} width={400} height={250} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/></center>
+                        </Grid.Column>
+
+                        <Grid.Column>
+                          <center><Charts graphData={Graph1Data} width={400} height={250} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
+                        </Grid.Column>
+                      </Grid.Row>
+                    </Grid>
                   </div>
 
-                  <div style={{overflow:'hidden'}}>
-                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
-                  </div>
-
-                  <div style={{overflow:'hidden'}}>
-                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/></center>
-                  </div>
                 </SwipeableViews>
               </Grid.Row>
 
@@ -435,20 +463,35 @@ export default class TableMenu extends Component
               <Grid.Row>
                 <SwipeableViews index={this.state.graphIndex}>
                   <div style={{overflow:'hidden'}}>
-                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/></center>
+
+                    <Grid>
+                      <Grid.Row columns={2}>
+                        <Grid.Column>
+                          <Charts graphData={Graph1Data} width={400} height={250} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/>
+                        </Grid.Column>
+
+                        <Grid.Column>
+                          <Charts graphData={Graph1Data} width={400} height={250} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/>
+                        </Grid.Column>
+                      </Grid.Row>
+                    </Grid>
+
                   </div>
 
                   <div style={{overflow:'hidden'}}>
-                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/></center>
+                    <Grid>
+                      <Grid.Row columns={2}>
+                        <Grid.Column>
+                          <center><Charts graphData={Graph1Data} width={400} height={250} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/></center>
+                        </Grid.Column>
+
+                        <Grid.Column>
+                          <center><Charts graphData={Graph1Data} width={400} height={250} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
+                        </Grid.Column>
+                      </Grid.Row>
+                    </Grid>
                   </div>
 
-                  <div style={{overflow:'hidden'}}>
-                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
-                  </div>
-
-                  <div style={{overflow:'hidden'}}>
-                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/></center>
-                  </div>
                 </SwipeableViews>
               </Grid.Row>
 
