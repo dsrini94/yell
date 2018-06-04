@@ -8,6 +8,7 @@ export default class Chart extends Component {
     super(props);
   }
   render(){
+
     return(
       <Grid>
         <Grid.Row>

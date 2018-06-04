@@ -12,7 +12,7 @@ const registerHeaderTablet = (props) => (
         <Grid.Column width={7}/>
         <Grid.Column as={Link} to='/login' width={3} style={{marginTop:'0.5%',textAlign:'right',color:'black'}}>
           <Icon name="user circle" size="big"/>
-          <span>Log In</span>
+          <span style={{fontSize:'15px'}}><strong>Log In</strong></span>
         </Grid.Column>
         <Grid.Column width={2}/>
       </Grid.Row>

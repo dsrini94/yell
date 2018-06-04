@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 
-import { Menu, Segment, Table, Checkbox, Grid, Header, Label, Button } from 'semantic-ui-react';
+import { Menu, Segment, Table, Checkbox, Grid, Header, Label, Button, Pagination } from 'semantic-ui-react';
 
 import SwipeableViews from 'react-swipeable-views';
 
@@ -22,7 +22,11 @@ export default class TableMenu extends Component
     this.state={
       activeItem:'Yell.com',
       index:0,
-      checkBox:false
+      checkBox:false,
+      graphIndex:0,
+      preDisabled:true,
+      nextDisabled:false,
+      activePage:1
     }
   }
 
@@ -102,30 +106,90 @@ export default class TableMenu extends Component
    )
  }
 
+ handlePrevious()
+ {
+   if(this.state.graphIndex == 1)
+      this.setState({graphIndex:this.state.graphIndex-1,preDisabled:true,nextDisabled:false})
+    else
+      this.setState({graphIndex:this.state.graphIndex-1,preDisabled:false,nextDisabled:false})
+ }
+
+ handleNext()
+ {
+   if(this.state.graphIndex == 0)
+      this.setState({graphIndex:this.state.graphIndex+1,nextDisabled:true,preDisabled:false})
+    else
+      this.setState({graphIndex:this.state.graphIndex+1,nextDisabled:false,preDisabled:false})
+ }
+
+ handlePaginationChange(e, { activePage }) {
+   this.setState({activePage})
+ }
+
  renderTableData()
  {
-   return(
-     YellData.map((item,key)=>{
-       var color =  item.status == 'Live' ? 'green' : '#ed9147';
-       return(
-         <Table.Row key={key}>
-            <Table.Cell collapsing style={{padding:0}}>
-              <div style={{padding:3,backgroundColor:color,float:'left',height:53}}>
-              </div>
-              <Checkbox style={{float:'left',padding:8}} checked={this.state.checkBox}/>
-            </Table.Cell>
-            <Table.Cell>{item.name}</Table.Cell>
-            <Table.Cell>{item.order}</Table.Cell>
-            <Table.Cell>{item.classification}</Table.Cell>
-            <Table.Cell>{item.location}</Table.Cell>
-            <Table.Cell>{item.date}</Table.Cell>
-            <Table.Cell><span style={{color:color,fontWeight:'bold'}}>{item.status}</span></Table.Cell>
-            <Table.Cell>edit</Table.Cell>
-          </Table.Row>
-  );
 
-     })
-   )
+   if(this.state.activePage == 1)
+   {
+     return(
+       YellData.map((item,key)=>{
+         var color =  item.status == 'Live' ? 'green' : '#ed9147';
+         if(key <= 5)
+         {
+           return(
+             <Table.Row key={key}>
+                <Table.Cell collapsing style={{padding:0}}>
+                  <div style={{padding:3,backgroundColor:color,float:'left',height:53}}>
+                  </div>
+                  <Checkbox style={{float:'left',padding:8}} checked={this.state.checkBox}/>
+                </Table.Cell>
+                <Table.Cell>{item.name}</Table.Cell>
+                <Table.Cell>{item.order}</Table.Cell>
+                <Table.Cell>{item.classification}</Table.Cell>
+                <Table.Cell>{item.location}</Table.Cell>
+                <Table.Cell>{item.date}</Table.Cell>
+                <Table.Cell><span style={{color:color,fontWeight:'bold'}}>{item.status}</span></Table.Cell>
+                <Table.Cell>edit</Table.Cell>
+              </Table.Row>
+            );
+         }
+
+
+       })
+     )
+   }
+
+   else
+   {
+     return(
+       YellData.map((item,key)=>{
+         var color =  item.status == 'Live' ? 'green' : '#ed9147';
+         if(key > 5)
+         {
+           return(
+             <Table.Row key={key}>
+                <Table.Cell collapsing style={{padding:0}}>
+                  <div style={{padding:3,backgroundColor:color,float:'left',height:53}}>
+                  </div>
+                  <Checkbox style={{float:'left',padding:8}} checked={this.state.checkBox}/>
+                </Table.Cell>
+                <Table.Cell>{item.name}</Table.Cell>
+                <Table.Cell>{item.order}</Table.Cell>
+                <Table.Cell>{item.classification}</Table.Cell>
+                <Table.Cell>{item.location}</Table.Cell>
+                <Table.Cell>{item.date}</Table.Cell>
+                <Table.Cell><span style={{color:color,fontWeight:'bold'}}>{item.status}</span></Table.Cell>
+                <Table.Cell>edit</Table.Cell>
+              </Table.Row>
+            );
+         }
+
+
+       })
+     )
+   }
+
+
  }
 
   render()
@@ -153,7 +217,7 @@ export default class TableMenu extends Component
           </Menu.Item>
 
           <Menu.Item >
-            <Button disabled = {!this.state.checkBox}>Multi Edit</Button>
+            <Button color='orange' disabled = {!this.state.checkBox}>Multi Edit</Button>
           </Menu.Item>
         </Menu>
 
@@ -162,8 +226,55 @@ export default class TableMenu extends Component
         <SwipeableViews index={this.state.index}>
           <div style={{overflow:'hidden'}}>
             <Grid>
+
               <Grid.Row>
-                <Grid.Column width={12}>
+                <SwipeableViews index={this.state.graphIndex}>
+                  <div style={{overflow:'hidden'}}>
+
+                    <Grid>
+                      <Grid.Row columns={2}>
+                        <Grid.Column>
+                          <Charts graphData={Graph1Data} width={400} height={250} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/>
+                        </Grid.Column>
+
+                        <Grid.Column>
+                          <Charts graphData={Graph1Data} width={400} height={250} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/>
+                        </Grid.Column>
+                      </Grid.Row>
+                    </Grid>
+
+                  </div>
+
+                  <div style={{overflow:'hidden'}}>
+                    <Grid>
+                      <Grid.Row columns={2}>
+                        <Grid.Column>
+                          <center><Charts graphData={Graph1Data} width={400} height={250} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/></center>
+                        </Grid.Column>
+
+                        <Grid.Column>
+                          <center><Charts graphData={Graph1Data} width={400} height={250} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
+                        </Grid.Column>
+                      </Grid.Row>
+                    </Grid>
+                  </div>
+
+                  <div style={{overflow:'hidden'}}>
+                  </div>
+                </SwipeableViews>
+              </Grid.Row>
+
+              <Grid.Row>
+                <Grid.Column width={8}>
+                    <Button color={'orange'} style={{float:'right'}} disabled={this.state.preDisabled} onClick={this.handlePrevious.bind(this)}>Previous</Button>
+                </Grid.Column>
+                <Grid.Column width={8}>
+                  <Button color={'orange'} disabled={this.state.nextDisabled} onClick={this.handleNext.bind(this)} style={{float:'left'}}>Next</Button>
+              </Grid.Column>
+              </Grid.Row>
+
+              <Grid.Row>
+                <Grid.Column width={16}>
                     <Table celled >
                        <Table.Header>
                          <Table.Row>
@@ -183,24 +294,49 @@ export default class TableMenu extends Component
                        </Table.Body>
 
                      </Table>
+                    <center> <Pagination defaultActivePage={1} totalPages={2} style={{marginTop:10}} onPageChange={this.handlePaginationChange.bind(this)}/> </center>
+
                 </Grid.Column>
 
-                <Grid.Column width={4} style={{marginLeft:-40}}>
-                  <center><Header as={'h4'}>Performance on Yell.Com</Header></center>
-                  <br/>
-                  <Charts graphData={Graph1Data} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/>
-                  <Charts graphData={Graph1Data} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/>
-                  <Charts graphData={Graph1Data} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/>
-                  <Charts graphData={Graph1Data} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/>
-                </Grid.Column>
+
               </Grid.Row>
             </Grid>
 
           </div>
           <div style={{overflow:'hidden'}}>
             <Grid>
+
               <Grid.Row>
-                <Grid.Column width={12}>
+                <SwipeableViews index={this.state.graphIndex}>
+                  <div style={{overflow:'hidden'}}>
+                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/></center>
+                  </div>
+
+                  <div style={{overflow:'hidden'}}>
+                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/></center>
+                  </div>
+
+                  <div style={{overflow:'hidden'}}>
+                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
+                  </div>
+
+                  <div style={{overflow:'hidden'}}>
+                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/></center>
+                  </div>
+                </SwipeableViews>
+              </Grid.Row>
+
+              <Grid.Row>
+                <Grid.Column width={8}>
+                    <Button color={'orange'} style={{float:'right'}} disabled={this.state.preDisabled} onClick={this.handlePrevious.bind(this)}>Previous</Button>
+                </Grid.Column>
+                <Grid.Column width={8}>
+                  <Button color={'orange'} disabled={this.state.nextDisabled} onClick={this.handleNext.bind(this)} style={{float:'left'}}>Next</Button>
+              </Grid.Column>
+              </Grid.Row>
+
+              <Grid.Row>
+                <Grid.Column width={16}>
                     <Table celled >
                        <Table.Header>
                          <Table.Row>
@@ -220,22 +356,45 @@ export default class TableMenu extends Component
                      </Table>
                 </Grid.Column>
 
-                <Grid.Column width={4} style={{marginLeft:-40}}>
-                  <center><Header as={'h4'}>Performance on Yell.Com</Header></center>
-                  <br/>
-                  <Charts graphData={Graph1Data} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/>
-                  <Charts graphData={Graph1Data} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/>
-                  <Charts graphData={Graph1Data} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/>
-                  <Charts graphData={Graph1Data} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/>
-                </Grid.Column>
+
               </Grid.Row>
             </Grid>
 
           </div>
           <div style={{overflow:'hidden'}}>
             <Grid>
+
               <Grid.Row>
-                <Grid.Column width={12}>
+                <SwipeableViews index={this.state.graphIndex}>
+                  <div style={{overflow:'hidden'}}>
+                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/></center>
+                  </div>
+
+                  <div style={{overflow:'hidden'}}>
+                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/></center>
+                  </div>
+
+                  <div style={{overflow:'hidden'}}>
+                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
+                  </div>
+
+                  <div style={{overflow:'hidden'}}>
+                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/></center>
+                  </div>
+                </SwipeableViews>
+              </Grid.Row>
+
+              <Grid.Row>
+                <Grid.Column width={8}>
+                    <Button color={'orange'} style={{float:'right'}} disabled={this.state.preDisabled} onClick={this.handlePrevious.bind(this)}>Previous</Button>
+                </Grid.Column>
+                <Grid.Column width={8}>
+                  <Button color={'orange'} disabled={this.state.nextDisabled} onClick={this.handleNext.bind(this)} style={{float:'left'}}>Next</Button>
+              </Grid.Column>
+              </Grid.Row>
+
+              <Grid.Row>
+                <Grid.Column width={16}>
                     <Table celled >
                        <Table.Header>
                          <Table.Row>
@@ -255,22 +414,44 @@ export default class TableMenu extends Component
                      </Table>
                 </Grid.Column>
 
-                <Grid.Column width={4} style={{marginLeft:-40}}>
-                  <center><Header as={'h4'}>Performance on Yell.Com</Header></center>
-                  <br/>
-                  <Charts graphData={Graph1Data} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/>
-                  <Charts graphData={Graph1Data} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/>
-                  <Charts graphData={Graph1Data} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/>
-                  <Charts graphData={Graph1Data} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/>
-                </Grid.Column>
               </Grid.Row>
             </Grid>
 
           </div>
           <div style={{overflow:'hidden'}}>
             <Grid>
+
               <Grid.Row>
-                <Grid.Column width={12}>
+                <SwipeableViews index={this.state.graphIndex}>
+                  <div style={{overflow:'hidden'}}>
+                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/></center>
+                  </div>
+
+                  <div style={{overflow:'hidden'}}>
+                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/></center>
+                  </div>
+
+                  <div style={{overflow:'hidden'}}>
+                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
+                  </div>
+
+                  <div style={{overflow:'hidden'}}>
+                    <center><Charts graphData={Graph1Data} width={550} height={250} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/></center>
+                  </div>
+                </SwipeableViews>
+              </Grid.Row>
+
+              <Grid.Row>
+                <Grid.Column width={8}>
+                    <Button color={'orange'} style={{float:'right'}} disabled={this.state.preDisabled} onClick={this.handlePrevious.bind(this)}>Previous</Button>
+                </Grid.Column>
+                <Grid.Column width={8}>
+                  <Button color={'orange'} disabled={this.state.nextDisabled} onClick={this.handleNext.bind(this)} style={{float:'left'}}>Next</Button>
+              </Grid.Column>
+              </Grid.Row>
+
+              <Grid.Row>
+                <Grid.Column width={16}>
                     <Table celled >
                        <Table.Header>
                          <Table.Row>
@@ -290,20 +471,11 @@ export default class TableMenu extends Component
                      </Table>
                 </Grid.Column>
 
-                <Grid.Column width={4} style={{marginLeft:-40}}>
-                  <center><Header as={'h4'}>Performance on Yell.Com</Header></center>
-                  <br/>
-                  <Charts graphData={Graph1Data} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/>
-                  <Charts graphData={Graph1Data} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/>
-                  <Charts graphData={Graph1Data} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/>
-                  <Charts graphData={Graph1Data} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/>
-                </Grid.Column>
               </Grid.Row>
             </Grid>
 
           </div>
         </SwipeableViews>
-
       </div>
     );
   }

@@ -3,7 +3,7 @@ module.exports = [
     date:'12-04-2018',
     number:'xxxxxxxxxxxx',
     bal:'xxxxx',
-    action:'No Action Required'
+    action:'Paid'
   },
   {
     date:'12-04-2018',
@@ -15,13 +15,13 @@ module.exports = [
     date:'12-04-2018',
     number:'xxxxxxxxxxxx',
     bal:'xxxxx',
-    action:'No Action Required'
+    action:'Paid'
   },
   {
     date:'12-04-2018',
     number:'xxxxxxxxxxxx',
     bal:'xxxxx',
-    action:'No Action Required'
+    action:'Paid'
   },
   {
     date:'12-04-2018',
@@ -33,30 +33,30 @@ module.exports = [
     date:'12-04-2018',
     number:'xxxxxxxxxxxx',
     bal:'xxxxx',
-    action:'No Action Required'
+    action:'Paid'
   },
   {
     date:'12-04-2018',
     number:'xxxxxxxxxxxx',
     bal:'xxxxx',
-    action:'No Action Required'
+    action:'Paid'
   },
   {
     date:'12-04-2018',
     number:'xxxxxxxxxxxx',
     bal:'xxxxx',
-    action:'No Action Required'
+    action:'Paid'
   },
   {
     date:'12-04-2018',
     number:'xxxxxxxxxxxx',
     bal:'xxxxx',
-    action:'No Action Required'
+    action:'Paid'
   },
   {
     date:'12-04-2018',
     number:'xxxxxxxxxxxx',
     bal:'xxxxx',
-    action:'No Action Required'
+    action:'Paid'
   }
 ]

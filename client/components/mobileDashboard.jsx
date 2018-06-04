@@ -30,8 +30,13 @@ export default class MobileDashboard extends Component
       activeItem1:'All Invoices',
       index1:0,
       activeIndexAccordion1:99,
-      checkBox:false
+      checkBox:false,
+      activePage:1
     }
+  }
+
+  handlePaginationChange(e, { activePage }) {
+    this.setState({activePage})
   }
 
   handleSideBar(){
@@ -53,64 +58,142 @@ handleIndex(e, { name }) {
 
 renderTableData()
 {
-  return(
-    YellData.map((item,key)=>{
-      var color =  item.status == 'live' ? 'green' : '#ed9147';
-      return(
-        <Grid.Row key={key}>
-          <Grid.Column width={16}>
-            <Accordion>
-               <Accordion.Title active={this.state.activeIndexAccordion === key} index={key} onClick={this.handleClick.bind(this,key)}>
-                 <Grid>
-                   <Grid.Row style={{padding:0}}>
-                     <Grid.Column width={2}>
-                       <div style={{padding:3,backgroundColor:color,float:'left',height:40}}></div>
-                       <Checkbox style={{padding:5,marginTop:'17%'}} checked={this.state.checkBox}/>
-                     </Grid.Column>
-                     <Grid.Column width={5} style={{marginTop:'2%'}}>
-                        {item.name}
-                     </Grid.Column>
-                     <Grid.Column width={4} style={{marginTop:'2%'}}>
-                       {item.number}
-                     </Grid.Column>
-                     <Grid.Column width={3} style={{marginTop:'2%'}}>
-                       <span style={{color:color,fontWeight:'bold',padding:20}}>{item.status}</span>
-                     </Grid.Column>
-                      <Grid.Column width={2} style={{marginTop:'2%'}}>
-                        <Icon name='dropdown' style={{float:'right'}}/>
-                      </Grid.Column>
-                   </Grid.Row>
-                 </Grid>
-             </Accordion.Title>
-               <Accordion.Content active={this.state.activeIndexAccordion === key}>
-                 <Grid>
-                   <Grid.Row>
-                     <Grid.Column width={2} />
-                     <Grid.Column width={5}>
-                       <Header as='h5'>Classification</Header>
-                         {item.classification}
-                     </Grid.Column>
-                     <Grid.Column width={3}>
-                        <Header as='h5'>Location</Header>
-                        {item.location}
-                     </Grid.Column>
-                     <Grid.Column width={4}>
-                       <Header as='h5'>Date</Header>
-                       {item.date}
-                     </Grid.Column>
-                     <Grid.Column width={2} style={{marginTop:'3%'}}>
-                       <label >Edit</label>
-                     </Grid.Column>
-                   </Grid.Row>
-                 </Grid>
-               </Accordion.Content>
-             </Accordion>
-          </Grid.Column>
-         </Grid.Row>
- );
 
-    })
-  )
+  if(this.state.activePage == 1)
+  {
+    return(
+      YellData.map((item,key)=>{
+        var color =  item.status == 'Live' ? 'green' : '#ed9147';
+        if(key <= 5)
+        {
+          return(
+            <Grid.Row key={key}>
+              <Grid.Column width={16}>
+                <Accordion>
+                   <Accordion.Title active={this.state.activeIndexAccordion === key} index={key} onClick={this.handleClick.bind(this,key)}>
+                     <Grid>
+                       <Grid.Row style={{padding:0}}>
+                         <Grid.Column width={3}>
+                           <span>
+                           <div style={{padding:2,backgroundColor:color,float:'left',height:40}}></div>
+                           <Checkbox style={{marginTop:'18%',marginLeft:'9%'}} checked={this.state.checkBox}/>
+                         </span>
+                         </Grid.Column>
+                         <Grid.Column width={4} style={{marginTop:'2%',marginLeft:'-5%'}}>
+                            {item.name}
+                         </Grid.Column>
+                         <Grid.Column width={4} style={{marginTop:'2%',marginLeft:'-3%'}}>
+                           {item.number}
+                         </Grid.Column>
+                         <Grid.Column width={4} style={{marginTop:'2%'}}>
+                           <span style={{color:color,fontWeight:'bold',padding:20}}>{item.status}</span>
+                         </Grid.Column>
+                          <Grid.Column width={1} style={{marginTop:'3%',marginLeft:'5%'}}>
+                            <Icon name='dropdown' style={{float:'right'}}/>
+                          </Grid.Column>
+                       </Grid.Row>
+                     </Grid>
+                 </Accordion.Title>
+                   <Accordion.Content active={this.state.activeIndexAccordion === key}>
+                     <Grid style={{marginTop:'2%'}}>
+                       <Grid.Row>
+                         <Grid.Column width={2} />
+                         <Grid.Column width={4}>
+                           <Header as='h5'>Classification</Header>
+                             {item.classification}
+                         </Grid.Column>
+                         <Grid.Column width={3}>
+                            <Header as='h5'>Location</Header>
+                            {item.location}
+                         </Grid.Column>
+                         <Grid.Column width={4}>
+                           <Header as='h5'>Date</Header>
+                           {item.date}
+                         </Grid.Column>
+                         <Grid.Column width={3} style={{marginTop:'3%'}}>
+                           <label >Edit</label>
+                         </Grid.Column>
+                       </Grid.Row>
+                     </Grid>
+                   </Accordion.Content>
+                 </Accordion>
+              </Grid.Column>
+             </Grid.Row>
+     );
+        }
+      })
+    )
+  }
+
+  else
+  {
+    return(
+      YellData.map((item,key)=>{
+        var color =  item.status == 'Live' ? 'green' : '#ed9147';
+
+        if(key >= 5)
+        {
+          return(
+            <Grid.Row key={key}>
+              <Grid.Column width={16}>
+                <Accordion>
+                   <Accordion.Title active={this.state.activeIndexAccordion === key} index={key} onClick={this.handleClick.bind(this,key)}>
+                     <Grid>
+                       <Grid.Row style={{padding:0}}>
+                         <Grid.Column width={3}>
+                           <span>
+                           <div style={{padding:2,backgroundColor:color,float:'left',height:40}}></div>
+                           <Checkbox style={{marginTop:'18%',marginLeft:'9%'}} checked={this.state.checkBox}/>
+                         </span>
+                         </Grid.Column>
+                         <Grid.Column width={4} style={{marginTop:'2%',marginLeft:'-5%'}}>
+                            {item.name}
+                         </Grid.Column>
+                         <Grid.Column width={4} style={{marginTop:'2%',marginLeft:'-3%'}}>
+                           {item.number}
+                         </Grid.Column>
+                         <Grid.Column width={4} style={{marginTop:'2%'}}>
+                           <span style={{color:color,fontWeight:'bold',padding:20}}>{item.status}</span>
+                         </Grid.Column>
+                          <Grid.Column width={1} style={{marginTop:'3%',marginLeft:'5%'}}>
+                            <Icon name='dropdown' style={{float:'right'}}/>
+                          </Grid.Column>
+                       </Grid.Row>
+                     </Grid>
+                 </Accordion.Title>
+                   <Accordion.Content active={this.state.activeIndexAccordion === key}>
+                     <Grid style={{marginTop:'2%'}}>
+                       <Grid.Row>
+                         <Grid.Column width={2} />
+                         <Grid.Column width={4}>
+                           <Header as='h5'>Classification</Header>
+                             {item.classification}
+                         </Grid.Column>
+                         <Grid.Column width={3}>
+                            <Header as='h5'>Location</Header>
+                            {item.location}
+                         </Grid.Column>
+                         <Grid.Column width={4}>
+                           <Header as='h5'>Date</Header>
+                           {item.date}
+                         </Grid.Column>
+                         <Grid.Column width={3} style={{marginTop:'3%'}}>
+                           <label >Edit</label>
+                         </Grid.Column>
+                       </Grid.Row>
+                     </Grid>
+                   </Accordion.Content>
+                 </Accordion>
+              </Grid.Column>
+             </Grid.Row>
+     );
+        }
+
+      })
+    )
+  }
+
+
 }
 handleClick1(e){
   const newIndex = this.state.activeIndexAccordion1 === e ? -1 : e
@@ -129,19 +212,18 @@ handleAllInvoiceRender()
                <Accordion.Title active={this.state.activeIndexAccordion1 === key} index={key} onClick={this.handleClick1.bind(this,key)}>
                  <Grid>
                    <Grid.Row style={{padding:0}}>
-                     <Grid.Column width={2}>
+                     <Grid.Column width={1}>
                        <div style={{padding:3,backgroundColor:color,float:'left',height:40}}></div>
                      </Grid.Column>
-                     <Grid.Column width={4} style={{marginTop:'2%'}}>
+                     <Grid.Column width={6} style={{marginTop:'2%'}}>
                        {item.number}
                      </Grid.Column>
                      <Grid.Column width={7} style={{marginTop:'2%'}}>
-                       <span style={{color:textColor,fontWeight:'bold',padding:16}}>{item.action}</span>
+                       <span style={{color:textColor,fontWeight:'bold'}}>{item.action}</span>
                      </Grid.Column>
-                      <Grid.Column width={2} style={{marginTop:'2%'}}>
+                      <Grid.Column width={1} style={{marginTop:'2%'}}>
                         <Icon name='dropdown' style={{float:'right'}}/>
                       </Grid.Column>
-                      <Grid.Column width={1} />
                    </Grid.Row>
                  </Grid>
              </Accordion.Title>
@@ -183,11 +265,26 @@ handlePendingPaymentRender()
                <Accordion.Title active={this.state.activeIndexAccordion1 === key} index={key} onClick={this.handleClick1.bind(this,key)}>
                  <Grid>
                    <Grid.Row style={{padding:0}}>
-                     <Grid.Column width={1}/>
                      <Grid.Column width={1}>
                        <div style={{padding:3,backgroundColor:color,float:'left',height:40}}></div>
                      </Grid.Column>
-                     <Grid.Column width={4} style={{marginTop:'2%'}}>
+                     <Grid.Column width={6} style={{marginTop:'2%'}}>
+                       {item.number}
+                     </Grid.Column>
+                     <Grid.Column width={7} style={{marginTop:'2%'}}>
+                       <span style={{color:textColor,fontWeight:'bold'}}>{item.action}</span>
+                     </Grid.Column>
+                      <Grid.Column width={1} style={{marginTop:'2%'}}>
+                        <Icon name='dropdown' style={{float:'right'}}/>
+                      </Grid.Column>
+                   </Grid.Row>
+                 </Grid>
+                 {/* <Grid>
+                   <Grid.Row style={{padding:0}}>
+\                     <Grid.Column width={1}>
+                       <div style={{padding:3,backgroundColor:color,float:'left',height:40}}></div>
+                     </Grid.Column>
+                     <Grid.Column width={6} style={{marginTop:'2%'}}>
                        {item.number}
                      </Grid.Column>
                      <Grid.Column width={7} style={{marginTop:'2%'}}>
@@ -196,9 +293,8 @@ handlePendingPaymentRender()
                       <Grid.Column width={2} style={{marginTop:'2%'}}>
                         <Icon name='dropdown' style={{float:'right'}}/>
                       </Grid.Column>
-                      <Grid.Column width={1} />
                    </Grid.Row>
-                 </Grid>
+                 </Grid> */}
              </Accordion.Title>
                <Accordion.Content active={this.state.activeIndexAccordion1 === key}>
                  <Grid>
@@ -343,20 +439,27 @@ handlePendingPaymentRender()
                             <Grid.Column width={2} >
                               <Checkbox style={{padding:12,marginTop:'-15%'}} onChange={()=>this.setState({checkBox:!this.state.checkBox})} />
                            </Grid.Column>
-                            <Grid.Column width={5}>
+                            <Grid.Column width={4}>
                               <Header as={'h5'} style={{padding:8}}>Advert Name</Header>
                             </Grid.Column>
-                            <Grid.Column width={4}>
+                            <Grid.Column width={4} style={{marginTop:'2%'}}>
                               <Header as={'h5'}>Order Number/Line</Header>
                             </Grid.Column>
                             <Grid.Column width={3} >
                               <Header as={'h5'} style={{padding:8}}>Status</Header>
                             </Grid.Column>
-                            <Grid.Column width={2} style={{marginTop:'1%'}} >
+                            <Grid.Column width={3} style={{marginTop:'1%'}} >
                               <Icon name='edit' size='large' disabled = {!this.state.checkBox} />
                             </Grid.Column>
                           </Grid.Row>
                              {this.renderTableData()}
+                             <Grid.Row>
+                               <Grid.Column width={16}>
+                                 <center>
+                                 <Pagination defaultActivePage={1} totalPages={2} onPageChange={this.handlePaginationChange.bind(this)}/>
+                               </center>
+                               </Grid.Column>
+                             </Grid.Row>
                         </Grid>
                       </div>
                       <div style={{overflow:'hidden'}}>
@@ -372,16 +475,8 @@ handlePendingPaymentRender()
                       </div>
                   </Grid.Column>
                 </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16}>
-                    <Pagination defaultActivePage={5} totalPages={2} />
-                  </Grid.Column>
-                </Grid.Row>
-
               </Grid>
             </div>
-
             </Sidebar.Pusher>
           </Sidebar.Pushable>
            <DashboardFooter />
@@ -466,7 +561,7 @@ handlePendingPaymentRender()
                   <Grid.Row>
                     <Menu  pointing secondary>
                       <Menu.Item name='All Invoices' active={activeItem1 ==='All Invoices' } onClick={this.handleIndex.bind(this,0)}>
-                          All Incoices
+                          All Invoices
                           <Label color='orange'>10</Label>
                       </Menu.Item>
                       <Menu.Item name='Pending Payments' active={activeItem1 === 'Pending Payments'}  onClick={this.handleIndex.bind(this,1)}>
@@ -482,50 +577,56 @@ handlePendingPaymentRender()
                         <div style={{overflow:'hidden'}}>
                           <Grid>
                             <Grid.Row style={{backgroundColor:'#D7DADC',marginTop:'5%'}}>
-                              <Grid.Column width={2} />
-                              <Grid.Column width={5}>
+                              <Grid.Column width={1} />
+                              <Grid.Column width={6}>
                                 <Header as={'h5'}>Invoice Number</Header>
                               </Grid.Column>
-                              <Grid.Column width={6}>
+                              <Grid.Column width={7}>
                                 <Header as={'h5'}>Action</Header>
                               </Grid.Column>
-                              <Grid.Column width={3} />
+                              <Grid.Column width={2} />
                             </Grid.Row>
                             {this.handleAllInvoiceRender()}
+                            <Grid.Row>
+                              <Grid.Column width={16}>
+                                <center>
+                                <Pagination defaultActivePage={5} totalPages={2} />
+                              </center>
+                              </Grid.Column>
+                            </Grid.Row>
                           </Grid>
                         </div>
 
                         <div style={{overflow:'hidden'}}>
                           <Grid>
                             <Grid.Row style={{backgroundColor:'#D7DADC',marginTop:'5%'}}>
-                              <Grid.Column width={2} />
+                              <Grid.Column width={1} />
                               <Grid.Column width={6}>
                                 <Header as={'h5'}>Invoice Number</Header>
                               </Grid.Column>
-                              <Grid.Column width={6}>
+                              <Grid.Column width={7}>
                                 <Header as={'h5'}>Action</Header>
                               </Grid.Column>
                               <Grid.Column width={2} />
                             </Grid.Row>
                           {this.handlePendingPaymentRender()}
+                          <Grid.Row>
+                            <Grid.Column width={16}>
+                              <center>
+                              <Pagination defaultActivePage={5} totalPages={2} />
+                            </center>
+                            </Grid.Column>
+                          </Grid.Row>
                           </Grid>
                         </div>
-
                       </SwipeableViews>
                     </Grid.Column>
                   </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16}>
-                    <DashboardFooter />
-                  </Grid.Column>
-                </Grid.Row>
-
                 </Grid>
               </div>
-
               </Sidebar.Pusher>
             </Sidebar.Pushable>
+            <DashboardFooter />
            </div>
         )
     }
@@ -586,18 +687,11 @@ handlePendingPaymentRender()
                   </Segment>
                 </Grid.Column>
                 </Grid.Row>
-
-                <Grid.Row>
-                  <Grid.Column width={16}>
-                    <DashboardFooter />
-                  </Grid.Column>
-                </Grid.Row>
-
                 </Grid>
               </div>
-
               </Sidebar.Pusher>
             </Sidebar.Pushable>
+            <DashboardFooter />
            </div>
 
 

@@ -13,9 +13,9 @@ function MenuBarDirectMobile(){
             <Image src={'./client/assets/images/businessLogo.png'} size="large"/>
           </Grid.Column>
 
-          <Grid.Column width={4} />
+          <Grid.Column width={3} />
 
-          <Grid.Column width={6} style={styles.loginContainer}>
+          <Grid.Column width={7} style={styles.loginContainer}>
             <Dropdown text="Alans's Account" style={styles.loginText}>
             <Dropdown.Menu>
               <Dropdown.Item text='My profile' />

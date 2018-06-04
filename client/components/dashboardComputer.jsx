@@ -1,7 +1,7 @@
 import React,{ Component } from 'react';
 
 
-import { Grid, Menu, Segment, Icon, Header, Form, Input, Button, Table, Label, Pagination } from 'semantic-ui-react';
+import { Grid, Menu, Segment, Icon, Header, Form, Input, Button, Table, Label } from 'semantic-ui-react';
 import SwipeableViews from 'react-swipeable-views';
 
 
@@ -147,7 +147,6 @@ handlePendingPaymentRender()
                     <Grid.Row>
                       <Grid.Column width={16}>
                         <TableMenu />
-                        <Pagination defaultActivePage={5} totalPages={2} style={{marginTop:10}}/>
                       </Grid.Column>
 
                     </Grid.Row>
@@ -234,12 +233,12 @@ handlePendingPaymentRender()
                           <Grid>
                             <Grid.Row>
                               <Grid.Column width={11}>
-                                  <Table divided>
+                                  <Table >
                                      <Table.Header>
                                        <Table.Row>
                                          <Table.HeaderCell>Invoice Date</Table.HeaderCell>
                                          <Table.HeaderCell>Invoice Number</Table.HeaderCell>
-                                         <Table.HeaderCell>Balance</Table.HeaderCell>
+                                         <Table.HeaderCell>Balance (£)</Table.HeaderCell>
                                          <Table.HeaderCell>Action</Table.HeaderCell>
                                        </Table.Row>
                                      </Table.Header>
@@ -265,7 +264,7 @@ handlePendingPaymentRender()
                                        <Table.Row>
                                          <Table.HeaderCell>Invoice Date</Table.HeaderCell>
                                          <Table.HeaderCell>Invoice Number/Line</Table.HeaderCell>
-                                         <Table.HeaderCell>Balance</Table.HeaderCell>
+                                         <Table.HeaderCell>Balance (£)</Table.HeaderCell>
                                          <Table.HeaderCell>Action</Table.HeaderCell>
                                        </Table.Row>
                                      </Table.Header>
