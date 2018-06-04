@@ -31,7 +31,18 @@ export default class TableMenu extends Component
   }
 
    handleItemClick(e, { name }) {
-     this.setState({ activeItem: name,index:e })
+     if(name == "Yell.com")
+      this.setState({ activeItem: name,index:0 })
+     else
+     if (name == "Connect")
+      this.setState({ activeItem: name,index:1 })
+     else
+     if(name == "Reputation")
+      this.setState({ activeItem: name,index:2 })
+     else
+     if(name == "Freelistings")
+       this.setState({ activeItem: name,index:3 })
+
  }
 
  renderFreelistingsData()
@@ -198,20 +209,20 @@ export default class TableMenu extends Component
 
     return(
       <div>
-        <Menu  pointing secondary>
-          <Menu.Item name='Yell.com' active={activeItem ==='Yell.com' } onClick={this.handleItemClick.bind(this,0)}>
+        <Menu pointing secondary>
+          <Menu.Item name='Yell.com' active={activeItem ==='Yell.com' } onClick={this.handleItemClick.bind(this)}>
               Yell.com
               <Label color='orange'>10</Label>
           </Menu.Item>
-          <Menu.Item name='Connect' active={activeItem === 'Connect'} onClick={this.handleItemClick.bind(this,1)} >
+          <Menu.Item name='Connect' active={activeItem === 'Connect'} onClick={this.handleItemClick.bind(this)} >
             Connect
             <Label color='orange'>1</Label>
           </Menu.Item>
-          <Menu.Item name='Reputation' active={activeItem === 'Reputation'} onClick={this.handleItemClick.bind(this,2)} >
+          <Menu.Item name='Reputation' active={activeItem === 'Reputation'} onClick={this.handleItemClick.bind(this)} >
             Reputation
             <Label color='orange'>2</Label>
           </Menu.Item>
-          <Menu.Item name='Freelistings' active={activeItem === 'Freelistings'} onClick={this.handleItemClick.bind(this,3)} >
+          <Menu.Item name='Freelistings' active={activeItem === 'Freelistings'} onClick={this.handleItemClick.bind(this)} >
             Freelistings
             <Label color='orange'>5</Label>
           </Menu.Item>

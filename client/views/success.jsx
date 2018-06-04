@@ -18,7 +18,6 @@ export default class Registrationpage extends Component {
     }
   }
   render() {
-    console.log('this.props.match.params.value',this.props);
 
     return (
       <div>
@@ -38,11 +37,11 @@ export default class Registrationpage extends Component {
               <DividerLine />
             </Grid.Column>
           </Grid.Row> */}
-          <Grid.Row only='computer' style={{marginTop:'-25px'}}>
+          {/* <Grid.Row only='computer' style={{marginTop:'-25px'}}>
             <Grid.Column width={16}>
               <AccountCreatedPage />
             </Grid.Column>
-          </Grid.Row>
+          </Grid.Row> */}
           <Grid.Row only='computer'>
             <Grid.Column width={16}>
               <DividerBottom />

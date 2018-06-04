@@ -20,7 +20,7 @@ export default class AppRouter extends Component{
         <Route  path='/dashboard' component={DashBoard} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
-        <Route path='/success' component={Success} />
+        <Route path='/success/:checked' component={Success} />
       </Switch>
       </HashRouter>
     );

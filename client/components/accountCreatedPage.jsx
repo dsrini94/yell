@@ -1,5 +1,5 @@
 import React ,{Component} from 'react';
-import { Grid,Icon,Message } from 'semantic-ui-react'
+import { Grid,Icon,Message,Header } from 'semantic-ui-react'
 import { Redirect } from 'react-router';
 import { Link, BrowserRouter } from 'react-router-dom';
 
@@ -16,7 +16,7 @@ export default class AccountCreatedPage extends Component{
     super(props);
   }
   render(){
-    //console.log('this.props.match.params.value',this.props.location.state.message);
+    console.log('---->',this.props.match.params.checked);
   return(
     <Grid>
       <Grid.Row only='computer'>
@@ -32,10 +32,14 @@ export default class AccountCreatedPage extends Component{
       <Grid.Row only='computer' style={{marginTop:'-25px'}}>
         <Grid.Column width={16}>
           <Message success>
-            <p>
-              {/* {this.props.location.state.message} */}
-              You may now <span style={{textDecoration:'underline'}}>log-in</span>'
+          <center>
+             <p>
+              {this.props.match.params.checked == 'true' ? 'You have successfully created an account in YellDirect.com' : 'You have successfully created an account in Yell.com'}
             </p>
+            <Link to="/login"><p>You may now <span style={{textDecoration:'underline'}}>log-in</span>'
+            </p>
+            </Link>
+          </center>
           </Message>
         </Grid.Column>
       </Grid.Row>

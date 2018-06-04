@@ -18,7 +18,7 @@ export default class RegisterFields extends Component {
       accountnumber:1122334567,
       postcode:5689,
       message:'',
-      redirect:false
+      redirect:false,
     }
     this.handleCheckbox = this.handleCheckbox.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
@@ -26,7 +26,7 @@ export default class RegisterFields extends Component {
     this.showPassword = this.showPassword.bind(this);
   }
   handleCheckbox(){
-    this.setState({checked:!this.state.checked});
+      this.setState({checked:!this.state.checked});
   }
   hidePassword(){
     this.setState({passwordType:'password'});
@@ -67,9 +67,7 @@ export default class RegisterFields extends Component {
     })
     // var format = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
   }
- createAccount(){
 
- }
   render() {
   //  console.log("message",this.state.message);
     return (
@@ -211,7 +209,9 @@ export default class RegisterFields extends Component {
                           <Checkbox label='Keep me up-dated by email on how Yell can help you find products and services (Privacy Policy) Optional' style={{marginTop:'12px',fontSize:'12px'}}/>
                       </Form.Field>
                       <Form.Field>
-                          <Button fluid style={{background:'#fedb00'}} onClick={this.createAccount.bind(this)}>Create Account</Button>
+                          <Link to={`/success/${this.state.checked}`}>
+                            <Button fluid style={{background:'#fedb00'}} >Create Account</Button>
+                          </Link>
                       </Form.Field>
                     </Form>
                   </Grid.Column>
