@@ -147,7 +147,7 @@ handlePendingPaymentRender()
                     <Grid.Row>
                       <Grid.Column width={16}>
                         <TableMenu />
-                        <Pagination defaultActivePage={5} totalPages={2} style={{marginTop:-50}}/>
+                        <Pagination defaultActivePage={5} totalPages={2} style={{marginTop:10}}/>
                       </Grid.Column>
 
                     </Grid.Row>
