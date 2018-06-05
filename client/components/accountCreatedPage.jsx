@@ -53,6 +53,43 @@ export default class AccountCreatedPage extends Component{
           <Footer />
         </Grid.Column>
       </Grid.Row>
+
+
+      <Grid.Row only='mobile'>
+        <Grid.Column width={16}>
+          <AppBarMobile />
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row only='mobile'>
+        <Grid.Column width={16} style={{marginTop:'-15px'}}>
+          <MenuBarSuccess />
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row only='mobile' style={{marginTop:'-25px'}}>
+        <Grid.Column width={16}>
+          <Message success>
+          <center>
+             <p>
+              {this.props.match.params.checked == 'true' ? 'You have successfully created an account in YellDirect.com' : 'You have successfully created an account in Yell.com'}
+            </p>
+            <Link to="/login"><p>You may now <span style={{textDecoration:'underline'}}>log-in</span>'
+            </p>
+            </Link>
+          </center>
+          </Message>
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row only='mobile'>
+        <Grid.Column width={16}>
+          <DividerBottom />
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row only='mobile' style={{marginTop:'-25px'}}>
+        <Grid.Column width={16}>
+          <Footer />
+        </Grid.Column>
+      </Grid.Row>
+
     </Grid>
 
   )

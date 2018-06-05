@@ -86,6 +86,7 @@ export default class Loginpage extends Component {
               <Footer />
             </Grid.Column>
           </Grid.Row>
+
           <Grid.Row only='mobile'>
             <Grid.Column width={16}>
               <AppBarMobile />
