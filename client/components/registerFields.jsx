@@ -15,6 +15,7 @@ export default class RegisterFields extends Component {
       numberFound:false,
       upperFound:false,
       lengthFound:false,
+      letterFound:false,
       accountnumber:1122334567,
       postcode:5689,
       message:'',
@@ -25,6 +26,14 @@ export default class RegisterFields extends Component {
     this.hidePassword = this.hidePassword.bind(this);
     this.showPassword = this.showPassword.bind(this);
   }
+
+  componentWillReceiveProps(){
+    console.log("DidMount pros",this.props.account,this.props.passcode, this.props.mailId);
+    console.log("1");
+    this.setState({checked:true});
+    console.log("2");
+  }
+
   handleCheckbox(){
       this.setState({checked:!this.state.checked});
   }
@@ -38,6 +47,7 @@ export default class RegisterFields extends Component {
     let val = event.target.value;
     this.setState({password:val},()=>{
       var characterFormat = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+      var letterFormat =/^[A-z]+$/;
       var numberFormat = /[0-9]/;
       var upperFormat = /[A-Z]/;
       var noSpaceFormat = /^\S*$/;
@@ -71,6 +81,12 @@ export default class RegisterFields extends Component {
       else{
         this.setState({noSpaceFound:false});
       }
+      if(letterFormat.test(this.state.password) == true ){
+        this.setState({letterFound:true});
+      }
+      else{
+        this.setState({letterFound:false});
+      }
     })
     // var format = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
   }
@@ -93,38 +109,32 @@ export default class RegisterFields extends Component {
                       <Form.Field>
                           <Checkbox label='I want to access YellDirect.com and have an account number' checked={this.state.checked} onChange={this.handleCheckbox} style={{fontSize:'12px'}}/>
                       </Form.Field>
-                       {this.state.checked == true ?
-                        <span style={{width:'105%'}}>
-                        <Form.Field>
-                            <label style={{float:'left'}}>Account Number</label>
-                        </Form.Field>
-                        <Form.Field >
-                            <Input fluid/>
-                        </Form.Field>
-                        <Form.Field >
-                            <label style={{float:'left'}}>Postcode</label>
-                        </Form.Field>
-                        <Form.Field >
-                            <Input fluid/>
-                        </Form.Field>
-                        {/*<Form.Field>
-                            <Message style={{fontSize:'11px'}}>
-                              <Message.Header>
-                                How to find your account number? :
-                              </Message.Header>
-                              <p>
-                                In emails or posts we have sent you.
-                              </p>
-                              <Message.Header>
-                              Can't find your account number?:
-                              </Message.Header>
-                              <p>
-                                Contact us <span style={{color:'blue'}}> online </span> or <span style={{color:'blue'}}> email us. </span>
-                              </p>
-                            </Message>
-                        </Form.Field>*/}
-                        </span>
-                     : ''}
+                      {this.state.checked == true ?
+                       <span style={{width:'105%'}}>
+                       <Form.Field>
+                           <label style={{float:'left'}}>Account Number</label>
+                       </Form.Field>
+                       {this.props.account !=" " ?
+                       <Form.Field>
+                         <Input fluid value={this.props.account}/>
+                       </Form.Field>
+                     :
+                     <Form.Field>
+                       <Input fluid/>
+                     </Form.Field>}
+                       <Form.Field >
+                           <label style={{float:'left'}}>Postcode</label>
+                       </Form.Field>
+                       {this.props.passcode !=" " ?
+                       <Form.Field>
+                         <Input fluid value={this.props.passcode}/>
+                       </Form.Field>
+                     :
+                     <Form.Field>
+                       <Input fluid/>
+                     </Form.Field>}
+                       </span>
+                    : ''}
                       <Form.Field style={{marginTop:'2%'}}>
                           <label style={{float:'left'}} >First Name</label>
                       </Form.Field>
@@ -147,9 +157,14 @@ export default class RegisterFields extends Component {
                       <Form.Field>
                           <label style={{float:'left'}}>Email Address</label>
                       </Form.Field>
+                      {this.props.mailId !=" " ?
                       <Form.Field>
-                          <Input fluid placeholder='abc@xyz.com'/>
+                        <Input fluid value={this.props.mailId}/>
                       </Form.Field>
+                    :
+                    <Form.Field>
+                      <Input fluid placeholder='xyz@gmail.com'/>
+                    </Form.Field>}
                       <Form.Field>
                           <label style={{float:'left'}}>Password</label>
                           {
@@ -166,7 +181,7 @@ export default class RegisterFields extends Component {
                         <Grid.Row columns={2}>
                           <Grid.Column>
 
-                            {this.state.upperFound == false ?
+                            {this.state.letterFound == false ?
                                <span style={{fontSize:'12px',color:'gray'}}>One Letter</span>:
                                <span>
                                  <Icon name='checkmark box' color='green' />
@@ -189,7 +204,7 @@ export default class RegisterFields extends Component {
 
                           <Grid.Column>
 
-                            {this.state.characterFound == false ?
+                            {this.state.noSpaceFound == false ?
                             <span style={{fontSize:'12px',color:'gray'}}>No Space</span>:
                             <span>
                               <Icon name='checkmark box' color='green' />
@@ -227,13 +242,13 @@ export default class RegisterFields extends Component {
                       <span>
                           <Message style={{fontSize:'11px'}}>
                             <Message.Header>
-                              How to find your account number? :
+                              How to find your account number?
                             </Message.Header>
                             <p>
                               In emails or posts we have sent you.
                             </p>
                             <Message.Header>
-                            Can't find your account number?:
+                            Can't find your account number?
                             </Message.Header>
                             <p>
                               Contact us <span style={{color:'blue'}}> online </span> or <span style={{color:'blue'}}> email us. </span>

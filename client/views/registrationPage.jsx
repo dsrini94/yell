@@ -17,8 +17,38 @@ export default class Registrationpage extends Component {
   constructor(){
     super();
     this.state={
-
+      account:'',
+      passcode:'',
+      mailId:''
     }
+  }
+  componentDidMount(){
+    console.log("query string register--->",((this.props.location.search).replace("?","")).split("&"));
+    var account;
+    var passcode;
+    var mailId;
+    if(this.props.location.search !=''){
+      var x=((this.props.location.search).replace("?","")).split("&");
+       account = x[0];
+       passcode = x[1];
+       mailId = x[2];
+      account=account.split("=")[1];
+      passcode=passcode.split("=")[1];
+      mailId=mailId.split("=")[1];
+      this.setState({account:account,passcode:passcode,mailId:mailId});
+    }
+  }
+  autoFill(){
+    var x=((this.props.location.search).replace("?","")).split("&");
+     account = x[0];
+     passcode = x[1];
+     mailId = x[2];
+    account=account.split("=")[1];
+    console.log(account);
+    passcode=passcode.split("=")[1];
+    console.log(passcode);
+    mailId=mailId.split("=")[1];
+    console.log(mailId);
   }
   render() {
     return (
@@ -39,11 +69,19 @@ export default class Registrationpage extends Component {
               <DividerLine />
             </Grid.Column>
           </Grid.Row>
+          {this.props.location.search == '' ?
           <Grid.Row only='computer' style={{marginTop:'-25px'}}>
             <Grid.Column width={16}>
               <RegisterFields />
             </Grid.Column>
           </Grid.Row>
+          :
+          <Grid.Row only='computer' style={{marginTop:'-25px'}}>
+            <Grid.Column width={16}>
+              <RegisterFields  account={this.state.account} passcode={this.state.passcode} mailId={this.state.mailId} />
+            </Grid.Column>
+          </Grid.Row>
+        }
           <Grid.Row only='computer'>
             <Grid.Column width={16}>
               <DividerBottom />
