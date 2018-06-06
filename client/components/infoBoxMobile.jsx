@@ -26,7 +26,7 @@ export default class InfoBox extends Component
       number:{
         fontWeight:'bold',
         color:'white',
-        fontSize:20
+        fontSize:30
       },
       textContainer:{
         padding:15

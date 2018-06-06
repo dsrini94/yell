@@ -23,7 +23,7 @@ export default class DashBoardComputer extends React.Component
     super();
     this.state={
       activeItem:'Dashboard',
-      activeItem1:'All Invoices',
+      activeItem1:'Pending Payments',
       index:0
     }
   }
@@ -34,7 +34,10 @@ export default class DashBoardComputer extends React.Component
   }
 
   handleIndex(e, { name }) {
-    this.setState({ activeItem1: name,index:e })
+    if(name == 'All Invoices')
+      this.setState({ activeItem1: name,index:0 })
+    else
+      this.setState({ activeItem1: name,index:1 })
 }
 
 handleSegmentClick()
@@ -100,7 +103,7 @@ handlePendingPaymentRender()
 
                 <Grid.Column width={2} />
 
-                <Grid.Column width={5} style={{marginTop:35}}>
+                <Grid.Column width={5} style={{marginTop:15}}>
                     <center>
                     <span style={styles.headingText}>Guildford Tyre Co. Ltd</span>
                   </center>
@@ -119,7 +122,7 @@ handlePendingPaymentRender()
                   </Menu>
                 </Grid.Column>
 
-                <Grid.Column width={13}>
+                <Grid.Column width={13} style={{marginTop:-25}}>
 
                   <Grid padded>
                     <Grid.Row columns={3}>
@@ -128,7 +131,7 @@ handlePendingPaymentRender()
                       </Grid.Column>
 
                       <Grid.Column onClick={this.handleSegmentClick.bind(this)}>
-                          <InfoBox number={'05'} text={'Pending Payments'} color={'#f49e42'} tagLine={''}/>
+                          <InfoBox number={'02'} text={'Pending Payments'} color={'#f49e42'} tagLine={''}/>
                       </Grid.Column>
 
                       <Grid.Column>
@@ -136,7 +139,7 @@ handlePendingPaymentRender()
                       </Grid.Column>
                     </Grid.Row>
 
-                    <Grid.Row>
+                    <Grid.Row style={{marginTop:-10}}>
                       <Grid.Column width={16}>
                         <Segment inverted color={'yellow'}>
                           <center><span style={styles.text}>Your Adverts and Performance</span></center>
@@ -218,11 +221,11 @@ handlePendingPaymentRender()
                   <Grid.Column width={13}>
                     <div>
                       <Menu  pointing secondary>
-                        <Menu.Item name='All Invoices' active={activeItem ==='All Invoices' } onClick={this.handleIndex.bind(this,0)}>
+                        <Menu.Item name='All Invoices' active={activeItem1 ==='All Invoices' } onClick={this.handleIndex.bind(this)}>
                             All Invoices
                             <Label color='orange'>10</Label>
                         </Menu.Item>
-                        <Menu.Item name='Pending Payments' active={activeItem === 'Pending Payments'}  onClick={this.handleIndex.bind(this,1)}>
+                        <Menu.Item name='Pending Payments' active={activeItem1 === 'Pending Payments'}  onClick={this.handleIndex.bind(this)}>
                           Pending Payments
                           <Label color='orange'>2</Label>
                         </Menu.Item>

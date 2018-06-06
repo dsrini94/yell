@@ -1,5 +1,6 @@
 import React from 'react';
 import { Segment,Grid,Image,Icon,Dropdown } from 'semantic-ui-react'
+import { Link} from 'react-router-dom';
 
 function MenuBarDirectMobile(){
   return(
@@ -10,7 +11,9 @@ function MenuBarDirectMobile(){
           <Grid.Column width={2} />
 
           <Grid.Column width={4}>
-            <Image src={'./client/assets/images/businessLogo.png'} size="large"/>
+            <Link to={'/'}>
+            <Image src={'./client/assets/images/businessLogo.png'} size="large" />
+          </Link>
           </Grid.Column>
 
           <Grid.Column width={3} />

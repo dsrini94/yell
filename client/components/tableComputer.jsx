@@ -208,7 +208,7 @@ export default class TableMenu extends Component
     const { activeItem } = this.state
 
     return(
-      <div>
+      <div style={{marginTop:-10}}>
         <Menu pointing secondary>
           <Menu.Item name='Yell.com' active={activeItem ==='Yell.com' } onClick={this.handleItemClick.bind(this)}>
               Yell.com
@@ -216,15 +216,15 @@ export default class TableMenu extends Component
           </Menu.Item>
           <Menu.Item name='Connect' active={activeItem === 'Connect'} onClick={this.handleItemClick.bind(this)} >
             Connect
-            <Label color='orange'>1</Label>
+            <Label color='orange'>3</Label>
           </Menu.Item>
           <Menu.Item name='Reputation' active={activeItem === 'Reputation'} onClick={this.handleItemClick.bind(this)} >
             Reputation
-            <Label color='orange'>2</Label>
+            <Label color='orange'>3</Label>
           </Menu.Item>
           <Menu.Item name='Freelistings' active={activeItem === 'Freelistings'} onClick={this.handleItemClick.bind(this)} >
             Freelistings
-            <Label color='orange'>5</Label>
+            <Label color='orange'>4</Label>
           </Menu.Item>
 
           <Menu.Item >
@@ -239,18 +239,25 @@ export default class TableMenu extends Component
             <Grid>
 
               <Grid.Row>
+                <Grid.Column width={1}>
+                  <Button circular color={'orange'} icon='arrow left' disabled={this.state.preDisabled} onClick={this.handlePrevious.bind(this)} style={{marginLeft:20,marginTop:100}}/>
+                </Grid.Column>
+
+                <Grid.Column width={14}>
                 <SwipeableViews index={this.state.graphIndex}>
                   <div style={{overflow:'hidden'}}>
 
                     <Grid>
-                      <Grid.Row columns={2}>
-                        <Grid.Column>
-                          <Charts graphData={Graph1Data} width={400} height={250} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/>
+                      <Grid.Row >
+
+                        <Grid.Column width={6}>
+                          <Charts graphData={Graph1Data} width={350} height={200} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/>
                         </Grid.Column>
 
-                        <Grid.Column>
-                          <Charts graphData={Graph1Data} width={400} height={250} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/>
+                        <Grid.Column width={7}>
+                          <Charts graphData={Graph1Data} width={350} height={200} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/>
                         </Grid.Column>
+
                       </Grid.Row>
                     </Grid>
 
@@ -258,28 +265,26 @@ export default class TableMenu extends Component
 
                   <div style={{overflow:'hidden'}}>
                     <Grid>
-                      <Grid.Row columns={2}>
-                        <Grid.Column>
-                          <center><Charts graphData={Graph1Data} width={400} height={250} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/></center>
+                      <Grid.Row >
+                        <Grid.Column width={6}>
+                          <center><Charts graphData={Graph1Data} width={350} height={200} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/></center>
                         </Grid.Column>
 
-                        <Grid.Column>
-                          <center><Charts graphData={Graph1Data} width={400} height={250} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
+                        <Grid.Column width={7}>
+                          <center><Charts graphData={Graph1Data} width={350} height={200} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
                         </Grid.Column>
                       </Grid.Row>
                     </Grid>
                   </div>
 
                 </SwipeableViews>
-              </Grid.Row>
-
-              <Grid.Row>
-                <Grid.Column width={8}>
-                    <Button color={'orange'} style={{float:'right'}} disabled={this.state.preDisabled} onClick={this.handlePrevious.bind(this)}>Previous</Button>
-                </Grid.Column>
-                <Grid.Column width={8}>
-                  <Button color={'orange'} disabled={this.state.nextDisabled} onClick={this.handleNext.bind(this)} style={{float:'left'}}>Next</Button>
               </Grid.Column>
+
+
+                <Grid.Column width={1}>
+                  <Button circular color={'orange'} icon='arrow right' disabled={this.state.nextDisabled} onClick={this.handleNext.bind(this)} style={{marginTop:100,marginLeft:-100}}/>
+                </Grid.Column>
+
               </Grid.Row>
 
               <Grid.Row>
@@ -316,18 +321,25 @@ export default class TableMenu extends Component
             <Grid>
 
               <Grid.Row>
+                <Grid.Column width={1}>
+                  <Button circular color={'orange'} icon='arrow left' disabled={this.state.preDisabled} onClick={this.handlePrevious.bind(this)} style={{marginLeft:20,marginTop:100}}/>
+                </Grid.Column>
+
+                <Grid.Column width={14}>
                 <SwipeableViews index={this.state.graphIndex}>
                   <div style={{overflow:'hidden'}}>
 
                     <Grid>
-                      <Grid.Row columns={2}>
-                        <Grid.Column>
-                          <Charts graphData={Graph1Data} width={400} height={250} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/>
+                      <Grid.Row >
+
+                        <Grid.Column width={6}>
+                          <Charts graphData={Graph1Data} width={350} height={200} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/>
                         </Grid.Column>
 
-                        <Grid.Column>
-                          <Charts graphData={Graph1Data} width={400} height={250} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/>
+                        <Grid.Column width={7}>
+                          <Charts graphData={Graph1Data} width={350} height={200} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/>
                         </Grid.Column>
+
                       </Grid.Row>
                     </Grid>
 
@@ -335,28 +347,26 @@ export default class TableMenu extends Component
 
                   <div style={{overflow:'hidden'}}>
                     <Grid>
-                      <Grid.Row columns={2}>
-                        <Grid.Column>
-                          <center><Charts graphData={Graph1Data} width={400} height={250} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/></center>
+                      <Grid.Row >
+                        <Grid.Column width={6}>
+                          <center><Charts graphData={Graph1Data} width={350} height={200} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/></center>
                         </Grid.Column>
 
-                        <Grid.Column>
-                          <center><Charts graphData={Graph1Data} width={400} height={250} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
+                        <Grid.Column width={7}>
+                          <center><Charts graphData={Graph1Data} width={350} height={200} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
                         </Grid.Column>
                       </Grid.Row>
                     </Grid>
                   </div>
 
                 </SwipeableViews>
-              </Grid.Row>
-
-              <Grid.Row>
-                <Grid.Column width={8}>
-                    <Button color={'orange'} style={{float:'right'}} disabled={this.state.preDisabled} onClick={this.handlePrevious.bind(this)}>Previous</Button>
-                </Grid.Column>
-                <Grid.Column width={8}>
-                  <Button color={'orange'} disabled={this.state.nextDisabled} onClick={this.handleNext.bind(this)} style={{float:'left'}}>Next</Button>
               </Grid.Column>
+
+
+                <Grid.Column width={1}>
+                  <Button circular color={'orange'} icon='arrow right' disabled={this.state.nextDisabled} onClick={this.handleNext.bind(this)} style={{marginTop:100,marginLeft:-100}}/>
+                </Grid.Column>
+
               </Grid.Row>
 
               <Grid.Row>
@@ -389,18 +399,25 @@ export default class TableMenu extends Component
             <Grid>
 
               <Grid.Row>
+                <Grid.Column width={1}>
+                  <Button circular color={'orange'} icon='arrow left' disabled={this.state.preDisabled} onClick={this.handlePrevious.bind(this)} style={{marginLeft:20,marginTop:100}}/>
+                </Grid.Column>
+
+                <Grid.Column width={14}>
                 <SwipeableViews index={this.state.graphIndex}>
                   <div style={{overflow:'hidden'}}>
 
                     <Grid>
-                      <Grid.Row columns={2}>
-                        <Grid.Column>
-                          <Charts graphData={Graph1Data} width={400} height={250} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/>
+                      <Grid.Row >
+
+                        <Grid.Column width={6}>
+                          <Charts graphData={Graph1Data} width={350} height={200} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/>
                         </Grid.Column>
 
-                        <Grid.Column>
-                          <Charts graphData={Graph1Data} width={400} height={250} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/>
+                        <Grid.Column width={7}>
+                          <Charts graphData={Graph1Data} width={350} height={200} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/>
                         </Grid.Column>
+
                       </Grid.Row>
                     </Grid>
 
@@ -408,30 +425,27 @@ export default class TableMenu extends Component
 
                   <div style={{overflow:'hidden'}}>
                     <Grid>
-                      <Grid.Row columns={2}>
-                        <Grid.Column>
-                          <center><Charts graphData={Graph1Data} width={400} height={250} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/></center>
+                      <Grid.Row >
+                        <Grid.Column width={6}>
+                          <center><Charts graphData={Graph1Data} width={350} height={200} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/></center>
                         </Grid.Column>
 
-                        <Grid.Column>
-                          <center><Charts graphData={Graph1Data} width={400} height={250} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
+                        <Grid.Column width={7}>
+                          <center><Charts graphData={Graph1Data} width={350} height={200} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
                         </Grid.Column>
                       </Grid.Row>
                     </Grid>
                   </div>
 
                 </SwipeableViews>
-              </Grid.Row>
-
-              <Grid.Row>
-                <Grid.Column width={8}>
-                    <Button color={'orange'} style={{float:'right'}} disabled={this.state.preDisabled} onClick={this.handlePrevious.bind(this)}>Previous</Button>
-                </Grid.Column>
-                <Grid.Column width={8}>
-                  <Button color={'orange'} disabled={this.state.nextDisabled} onClick={this.handleNext.bind(this)} style={{float:'left'}}>Next</Button>
               </Grid.Column>
-              </Grid.Row>
 
+
+                <Grid.Column width={1}>
+                  <Button circular color={'orange'} icon='arrow right' disabled={this.state.nextDisabled} onClick={this.handleNext.bind(this)} style={{marginTop:100,marginLeft:-100}}/>
+                </Grid.Column>
+
+              </Grid.Row>
               <Grid.Row>
                 <Grid.Column width={16}>
                     <Table celled >
@@ -459,75 +473,14 @@ export default class TableMenu extends Component
           </div>
           <div style={{overflow:'hidden'}}>
             <Grid>
-
-              <Grid.Row>
-                <SwipeableViews index={this.state.graphIndex}>
-                  <div style={{overflow:'hidden'}}>
-
-                    <Grid>
-                      <Grid.Row columns={2}>
-                        <Grid.Column>
-                          <Charts graphData={Graph1Data} width={400} height={250} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/>
-                        </Grid.Column>
-
-                        <Grid.Column>
-                          <Charts graphData={Graph1Data} width={400} height={250} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/>
-                        </Grid.Column>
-                      </Grid.Row>
-                    </Grid>
-
-                  </div>
-
-                  <div style={{overflow:'hidden'}}>
-                    <Grid>
-                      <Grid.Row columns={2}>
-                        <Grid.Column>
-                          <center><Charts graphData={Graph1Data} width={400} height={250} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/></center>
-                        </Grid.Column>
-
-                        <Grid.Column>
-                          <center><Charts graphData={Graph1Data} width={400} height={250} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
-                        </Grid.Column>
-                      </Grid.Row>
-                    </Grid>
-                  </div>
-
-                </SwipeableViews>
-              </Grid.Row>
-
-              <Grid.Row>
-                <Grid.Column width={8}>
-                    <Button color={'orange'} style={{float:'right'}} disabled={this.state.preDisabled} onClick={this.handlePrevious.bind(this)}>Previous</Button>
-                </Grid.Column>
-                <Grid.Column width={8}>
-                  <Button color={'orange'} disabled={this.state.nextDisabled} onClick={this.handleNext.bind(this)} style={{float:'left'}}>Next</Button>
-              </Grid.Column>
-              </Grid.Row>
-
               <Grid.Row>
                 <Grid.Column width={16}>
-                    <Table celled >
-                       <Table.Header>
-                         <Table.Row>
-                           <Table.HeaderCell> <Checkbox onChange={()=>this.setState({checkBox:!this.state.checkBox})}/></Table.HeaderCell>
-                           <Table.HeaderCell>Listing ID</Table.HeaderCell>
-                           <Table.HeaderCell>Company</Table.HeaderCell>
-                           <Table.HeaderCell>Address</Table.HeaderCell>
-                           <Table.HeaderCell>Telephone</Table.HeaderCell>
-                           <Table.HeaderCell />
-                         </Table.Row>
-                       </Table.Header>
-
-                       <Table.Body>
-                         {this.renderFreelistingsData()}
-                       </Table.Body>
-
-                     </Table>
+                  <Segment inverted color={'grey'}>
+                    <center>No Prformance Data</center>
+                  </Segment>
                 </Grid.Column>
-
               </Grid.Row>
             </Grid>
-
           </div>
         </SwipeableViews>
       </div>

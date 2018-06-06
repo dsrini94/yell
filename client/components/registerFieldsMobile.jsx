@@ -77,7 +77,7 @@ export default class RegisterFieldsMobile extends Component {
                     <h3 style={{textAlign:'center'}}>Create Account</h3>
                 </Form.Field>
                 <Form.Field>
-                    <Checkbox label='I want to access Yell Direct' checked={this.state.checked} onChange={this.handleCheckbox} style={{fontSize:'12px',marginTop:'10px'}}/>
+                    <Checkbox label='I want to access YellDirect.com and have an account number' checked={this.state.checked} onChange={this.handleCheckbox} style={{fontSize:'12px',marginTop:'10px'}}/>
                 </Form.Field>
                 {this.state.checked == true ?
                   <span style={{width:'105%'}}>
@@ -151,19 +151,19 @@ export default class RegisterFieldsMobile extends Component {
                 <Form.Group>
                   <Form.Field>
                    {this.state.upperFound == false ?
-                      <span style={{fontSize:'12px',color:'gray'}}>One Uppercase</span>:
+                      <span style={{fontSize:'12px',color:'gray'}}>One Letter</span>:
                       <span>
                         <Icon name='checkmark box' color='green' />
-                      <span style={{fontSize:'12px',color:'green'}}>One Uppercase</span>
+                      <span style={{fontSize:'12px',color:'green'}}>One Letter</span>
                      </span>
                      }
                   </Form.Field>
                   <Form.Field>
                       {this.state.characterFound == false ?
-                      <span style={{fontSize:'12px',color:'gray'}}>One special Character</span>:
+                      <span style={{fontSize:'12px',color:'gray'}}>One Number</span>:
                       <span>
                         <Icon name='checkmark box' color='green' />
-                      <span style={{fontSize:'12px',color:'green'}}>One special Character</span>
+                      <span style={{fontSize:'12px',color:'green'}}>One Number</span>
                      </span>
                       }
                   </Form.Field>
@@ -171,19 +171,19 @@ export default class RegisterFieldsMobile extends Component {
                 <Form.Group>
                   <Form.Field>
                     {this.state.numberFound == false ?
-                      <span style={{fontSize:'12px',color:'gray'}} >One Number</span>:
+                      <span style={{fontSize:'12px',color:'gray'}} >No Space</span>:
                       <span>
                         <Icon name='checkmark box' color='green' />
-                      <span style={{fontSize:'12px',color:'green'}}>One Number</span>
+                      <span style={{fontSize:'12px',color:'green'}}>No Space</span>
                       </span>
                     }
                 </Form.Field>
                 <Form.Field>
                    {this.state.lengthFound == false ?
-                    <span style={{fontSize:'12px',color:'gray'}}>Minimum 8 characters</span>:
+                    <span style={{fontSize:'12px',color:'gray'}}>Password length 6 - 20</span>:
                     <span>
                       <Icon name='checkmark box' color='green' />
-                    <span style={{fontSize:'12px',color:'green'}}>Minimum 8 characters</span>
+                    <span style={{fontSize:'12px',color:'green'}}>Password length 6 - 20</span>
                    </span>
                    }
                 </Form.Field>

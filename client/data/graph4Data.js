@@ -1,14 +1,14 @@
 module.exports = [
-  { x: 'May', y: 10 },
-  { x: 'Jun', y: 8 },
-  { x: 'Jul', y: 4 },
+  { x: 'May', y: 80 },
+  { x: 'Jun', y: 1 },
+  { x: 'Jul', y: 7 },
   { x: 'Aug', y: 7 },
-  { x: 'Sep', y: 5 },
-  { x: 'Oct', y: 8 },
-  { x: 'Nov', y: 7 },
-  { x: 'Dec', y: 3 },
-  { x: 'Jan 2018', y: 2 },
-  { x: 'Feb', y: 6 },
-  { x: 'Mar', y: 8 },
-  { x: 'Apr', y: 7 }
+  { x: 'Sep', y: 25 },
+  { x: 'Oct', y: 35 },
+  { x: 'Nov', y: 45 },
+  { x: 'Dec', y: 25 },
+  { x: 'Jan 2018', y: 25 },
+  { x: 'Feb', y: 65 },
+  { x: 'Mar', y: 85 },
+  { x: 'Apr', y: 75 }
 ];
