@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {Grid,Input,Checkbox,Button,Divider,Icon,Image,Message,Radio,Form} from 'semantic-ui-react';
-import { Redirect } from 'react-router';
 import { Link, BrowserRouter } from 'react-router-dom';
-import Success from './accountCreatedPage.jsx';
+
 
 export default class RegisterFields extends Component {
   constructor(){
@@ -15,11 +14,7 @@ export default class RegisterFields extends Component {
       numberFound:false,
       upperFound:false,
       lengthFound:false,
-      letterFound:false,
-      accountnumber:1122334567,
-      postcode:5689,
-      message:'',
-      redirect:false,
+      letterFound:false
     }
     this.handleCheckbox = this.handleCheckbox.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
@@ -28,10 +23,8 @@ export default class RegisterFields extends Component {
   }
 
   componentWillReceiveProps(){
-    console.log("DidMount pros",this.props.account,this.props.passcode, this.props.mailId);
-    console.log("1");
+    console.log("props desktop---------->",this.props.account,this.props.passcode,this.props.mailId);
     this.setState({checked:true});
-    console.log("2");
   }
 
   handleCheckbox(){
@@ -46,10 +39,10 @@ export default class RegisterFields extends Component {
   handlePassword(event){
     let val = event.target.value;
     this.setState({password:val},()=>{
-      var characterFormat = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
-      var letterFormat =/^[A-z]+$/;
+      //var characterFormat = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+      var letterFormat =/[A-Za-z]/g;
       var numberFormat = /[0-9]/;
-      var upperFormat = /[A-Z]/;
+      //var upperFormat = /[A-Z]/;
       var noSpaceFormat = /^\S*$/;
       if(this.state.password.length >= 8){
         this.setState({lengthFound:true});
@@ -57,24 +50,24 @@ export default class RegisterFields extends Component {
       else{
         this.setState({lengthFound:false});
       }
-      if(characterFormat.test(this.state.password) == true) {
-        this.setState({characterFound:true});
-      }
-      else{
-        this.setState({characterFound:false});
-      }
+      // if(characterFormat.test(this.state.password) == true) {
+      //   this.setState({characterFound:true});
+      // }
+      // else{
+      //   this.setState({characterFound:false});
+      // }
       if(numberFormat.test(this.state.password) == true ){
         this.setState({numberFound:true});
       }
       else{
         this.setState({numberFound:false});
       }
-      if(upperFormat.test(this.state.password) == true ){
-        this.setState({upperFound:true});
-      }
-      else{
-        this.setState({upperFound:false});
-      }
+      // if(upperFormat.test(this.state.password) == true ){
+      //   this.setState({upperFound:true});
+      // }
+      // else{
+      //   this.setState({upperFound:false});
+      // }
       if(noSpaceFormat.test(this.state.password) == true ){
         this.setState({noSpaceFound:true});
       }
@@ -92,7 +85,6 @@ export default class RegisterFields extends Component {
   }
 
   render() {
-  //  console.log("message",this.state.message);
     return (
       <div>
         <Grid>
@@ -147,13 +139,6 @@ export default class RegisterFields extends Component {
                       <Form.Field>
                           <Input fluid/>
                       </Form.Field>
-                      {/* <Form.Field>
-                          <Message >
-                              <p style={{fontSize:'11px'}}>
-                                <strong>Note:</strong> &nbsp; We will automatically create your display name, e.g JSmith-39. You can change this on the My Settings page after your account is created.
-                              </p>
-                            </Message>
-                      </Form.Field> */}
                       <Form.Field>
                           <label style={{float:'left'}}>Email Address</label>
                       </Form.Field>
