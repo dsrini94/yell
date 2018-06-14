@@ -220,7 +220,7 @@ handlePendingPaymentRender()
                 <Grid.Row>
                   <Grid.Column width={13}>
                     <div>
-                      <Menu  pointing secondary>
+                      <Menu  pointing secondary color={'orange'}>
                         <Menu.Item name='All Invoices' active={activeItem1 ==='All Invoices' } onClick={this.handleIndex.bind(this)}>
                             All Invoices
                             <Label color='orange'>10</Label>

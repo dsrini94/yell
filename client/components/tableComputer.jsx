@@ -6,6 +6,9 @@ import SwipeableViews from 'react-swipeable-views';
 
 import YellData from './../data/yellData.js'
 import Graph1Data from './../data/graph1Data.js';
+import Graph2Data from './../data/graph2Data.js';
+import Graph3Data from './../data/graph3Data.js';
+import Graph4Data from './../data/graph4Data.js';
 import connectData from './../data/connectData.js';
 import reputationData from './../data/reputationData.js';
 import freelistingsData from './../data/freelistingsData.js';
@@ -209,7 +212,7 @@ export default class TableMenu extends Component
 
     return(
       <div style={{marginTop:-10}}>
-        <Menu pointing secondary>
+        <Menu pointing secondary color={'orange'}>
           <Menu.Item name='Yell.com' active={activeItem ==='Yell.com' } onClick={this.handleItemClick.bind(this)}>
               Yell.com
               <Label color='orange'>10</Label>
@@ -224,7 +227,6 @@ export default class TableMenu extends Component
           </Menu.Item>
           <Menu.Item name='Freelistings' active={activeItem === 'Freelistings'} onClick={this.handleItemClick.bind(this)} >
             Freelistings
-            <Label color='orange'>4</Label>
           </Menu.Item>
 
           <Menu.Item >
@@ -255,7 +257,7 @@ export default class TableMenu extends Component
                         </Grid.Column>
 
                         <Grid.Column width={7}>
-                          <Charts graphData={Graph1Data} width={350} height={200} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/>
+                          <Charts graphData={Graph2Data} width={350} height={200} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/>
                         </Grid.Column>
 
                       </Grid.Row>
@@ -267,11 +269,11 @@ export default class TableMenu extends Component
                     <Grid>
                       <Grid.Row >
                         <Grid.Column width={6}>
-                          <center><Charts graphData={Graph1Data} width={350} height={200} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/></center>
+                          <center><Charts graphData={Graph3Data} width={350} height={200} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/></center>
                         </Grid.Column>
 
                         <Grid.Column width={7}>
-                          <center><Charts graphData={Graph1Data} width={350} height={200} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
+                          <center><Charts graphData={Graph4Data} width={350} height={200} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
                         </Grid.Column>
                       </Grid.Row>
                     </Grid>
@@ -333,7 +335,7 @@ export default class TableMenu extends Component
                       <Grid.Row >
 
                         <Grid.Column width={6}>
-                          <Charts graphData={Graph1Data} width={350} height={200} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/>
+                          <Charts graphData={Graph4Data} width={350} height={200} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/>
                         </Grid.Column>
 
                         <Grid.Column width={7}>
@@ -349,11 +351,11 @@ export default class TableMenu extends Component
                     <Grid>
                       <Grid.Row >
                         <Grid.Column width={6}>
-                          <center><Charts graphData={Graph1Data} width={350} height={200} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/></center>
+                          <center><Charts graphData={Graph2Data} width={350} height={200} heading={'Impression'} count={26010} icon={'eye'} color={['#e0c10f']}/></center>
                         </Grid.Column>
 
                         <Grid.Column width={7}>
-                          <center><Charts graphData={Graph1Data} width={350} height={200} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
+                          <center><Charts graphData={Graph3Data} width={350} height={200} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
                         </Grid.Column>
                       </Grid.Row>
                     </Grid>
@@ -411,11 +413,11 @@ export default class TableMenu extends Component
                       <Grid.Row >
 
                         <Grid.Column width={6}>
-                          <Charts graphData={Graph1Data} width={350} height={200} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/>
+                          <Charts graphData={Graph2Data} width={350} height={200} heading={'Calls'} count={542} icon={'mobile'} color={['#0083CA']}/>
                         </Grid.Column>
 
                         <Grid.Column width={7}>
-                          <Charts graphData={Graph1Data} width={350} height={200} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/>
+                          <Charts graphData={Graph4Data} width={350} height={200} heading={'Clicks'} count={265} icon={'pointing up'} color={['#ed9147']}/>
                         </Grid.Column>
 
                       </Grid.Row>
@@ -431,7 +433,7 @@ export default class TableMenu extends Component
                         </Grid.Column>
 
                         <Grid.Column width={7}>
-                          <center><Charts graphData={Graph1Data} width={350} height={200} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
+                          <center><Charts graphData={Graph3Data} width={350} height={200} heading={'Activities'} count={561} icon={'cubes'} color={['#269e1e']}/></center>
                         </Grid.Column>
                       </Grid.Row>
                     </Grid>

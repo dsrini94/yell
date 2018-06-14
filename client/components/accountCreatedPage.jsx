@@ -34,7 +34,7 @@ export default class AccountCreatedPage extends Component{
           <Message success>
           <center>
              <p>
-              {this.props.match.params.checked == 'true' ? 'Your yellDirect.com account has been successfully created' : 'Your yell.com account has been successfully created'}
+              {this.props.match.params.checked == 'true' ? 'Your YellDirect.com account has been successfully created' : 'Your Yell.com account has been successfully created'}
             </p>
             <Link to="/login"><p>You may now <span style={{textDecoration:'underline'}}>log-in</span>'
             </p>
@@ -70,7 +70,7 @@ export default class AccountCreatedPage extends Component{
           <Message success>
           <center>
              <p>
-              {this.props.match.params.checked == 'true' ? 'Your yellDirect.com account has been successfully created' : 'Your yell.com account has been successfully created'}
+              {this.props.match.params.checked == 'true' ? 'Your YellDirect.com account has been successfully created' : 'Your Yell.com account has been successfully created'}
             </p>
             <Link to="/login"><p>You may now <span style={{textDecoration:'underline'}}>log-in</span>'
             </p>

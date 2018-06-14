@@ -23,7 +23,7 @@ function MenuBarDirectMobile(){
             <Dropdown.Menu>
               <Dropdown.Item text='My profile' />
               <Dropdown.Item text='Settings' />
-              <Dropdown.Item text='Logout' />
+              <Dropdown.Item as={Link} to={'/'} text='Logout' />
             </Dropdown.Menu>
           </Dropdown>
           </Grid.Column>

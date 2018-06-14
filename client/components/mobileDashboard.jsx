@@ -647,7 +647,7 @@ handlePendingPaymentRender()
                 </Grid.Row>
                 <Grid.Row>
                   <Grid.Column width={16}>
-                    <Menu pointing secondary fluid widths={4}>
+                    <Menu pointing secondary fluid widths={4} color={'orange'}>
                       <Menu.Item name='Yell.com' active={activeItem ==='Yell.com' } onClick={this.handleItemClick.bind(this)} >
                         Yell.com (10)
                       </Menu.Item>
@@ -658,7 +658,7 @@ handlePendingPaymentRender()
                         Reputation (3)
                       </Menu.Item>
                       <Menu.Item name='Freelistings' active={activeItem === 'Freelistings'} onClick={this.handleItemClick.bind(this)}>
-                        Freelistings (0)
+                        Freelistings
                       </Menu.Item>
                     </Menu>
                   </Grid.Column>
@@ -919,7 +919,7 @@ handlePendingPaymentRender()
                   </Grid.Row>
 
                   <Grid.Row>
-                    <Menu  pointing secondary>
+                    <Menu  pointing secondary color={'orange'}>
                       <Menu.Item name='All Invoices' active={activeItem1 ==='All Invoices' } onClick={this.handleIndex.bind(this)}>
                           All Invoices
                           <Label color='orange'>10</Label>

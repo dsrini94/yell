@@ -8,11 +8,11 @@ const LoginHeaderMobile = (props) => (
         <Grid.Column width={1}/>
 
         <Grid.Column width={4} style={{marginTop:'-3%'}}>
-          <Image size='mini' src='https://www.yell.com/img/yell_icon_256x256.png' />
+          <Image size='medium' src='./client/assets/images/businessLogo.png' as={Link} to="/" />
         </Grid.Column>
 
         <Grid.Column as={Link} to='/register' style={{textAlign:'right',color:'black'}} width={10}>
-          <span style={{fontSize:'12px'}}><strong>Create Account</strong></span>
+          <span style={{fontSize:'15px'}}><strong>Create Account</strong></span>
         </Grid.Column>
 
         <Grid.Column width={1}/>

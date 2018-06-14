@@ -32,16 +32,7 @@ export default class Registrationpage extends Component {
               <MenuBarSuccess />
             </Grid.Column>
           </Grid.Row>
-          {/* <Grid.Row only='computer'>
-            <Grid.Column width={16}>
-              <DividerLine />
-            </Grid.Column>
-          </Grid.Row> */}
-          {/* <Grid.Row only='computer' style={{marginTop:'-25px'}}>
-            <Grid.Column width={16}>
-              <AccountCreatedPage />
-            </Grid.Column>
-          </Grid.Row> */}
+
           <Grid.Row only='computer'>
             <Grid.Column width={16}>
               <DividerBottom />

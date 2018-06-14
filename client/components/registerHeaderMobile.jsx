@@ -6,10 +6,10 @@ const registerHeaderMobile = (props) => (
     <Grid style={{overflow:'hidden'}}>
       <Grid.Row>
         <Grid.Column width={1}/>
-        <Grid.Column width={3}>
-          <Image size='tiny' src='https://www.yell.com/img/yell_icon_256x256.png' />
+        <Grid.Column width={4}>
+          <Image size='medium' src='./client/assets/images/businessLogo.png' as={Link} to="/"  style={{marginTop:5}}/>
         </Grid.Column>
-        <Grid.Column as={Link} to='/login' width={11} style={{marginTop:'3%',textAlign:'right',color:'black'}}>
+        <Grid.Column as={Link} to='/login' width={9} style={{marginTop:'3%',textAlign:'right',color:'black'}}>
           <Icon name="user circle" size="big"/>
           <span style={{fontSize:'15px'}}><strong>Log In</strong></span>
         </Grid.Column>

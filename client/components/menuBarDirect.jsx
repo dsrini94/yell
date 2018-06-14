@@ -1,6 +1,8 @@
 import React from 'react';
 import { Segment,Grid,Image,Icon,Dropdown } from 'semantic-ui-react'
 
+import { Link } from 'react-router-dom';
+
 function MenuBar(){
   return(
     <Segment style={styles.container}>
@@ -17,7 +19,7 @@ function MenuBar(){
             <Dropdown.Menu>
               <Dropdown.Item text='My profile' />
               <Dropdown.Item text='Settings' />
-              <Dropdown.Item text='Logout' />
+              <Dropdown.Item as={Link} to="/" text='Logout' />
             </Dropdown.Menu>
           </Dropdown>
           </Grid.Column>
